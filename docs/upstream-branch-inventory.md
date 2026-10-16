@@ -8,20 +8,20 @@
 | upstream/Chenglong-MS-patch-2 | 5f6e4117 | 0 | 0 | 历史或实验 | dev 已包含或为祖先 |
 | upstream/Chenglong-MS-patch-3 | 247fcf85 | 0 | 0 | 历史或实验 | dev 已包含或为祖先 |
 | upstream/Chenglong-MS-patch-4 | 363b1c41 | 0 | 0 | 历史或实验 | dev 已包含或为祖先 |
-| upstream/chartifact | 528db99a | 11 | 3 | 旧架构功能 | dev 新应用运行时可能取代，核对后决定 |
+| upstream/chartifact | 528db99a | 11 | 3 | 旧架构功能 | 导出能力已适配新版图表画布；旧线程组件未直接合并 |
 | upstream/clarity-data-anvil.azurewebsite.net | 734ee832 | 1 | 1 | 历史或实验 | 逐项评估 |
 | upstream/codespace-notes | fb16cf73 | 1 | 1 | 历史或实验 | 逐项评估 |
-| upstream/copilot/add-azure-sql-fabric-connector | fe484244 | 4 | 8 | 功能候选 | 在 dev 集成后移植与验证 |
-| upstream/copilot/add-pendidikan-chart-visualization | 78019639 | 2 | 4 | 功能候选 | 在 dev 集成后移植与验证 |
-| upstream/copilot/add-refresh-data-option | f611d1fa | 5 | 5 | 功能候选 | 在 dev 集成后移植与验证 |
+| upstream/copilot/add-azure-sql-fabric-connector | fe484244 | 4 | 8 | 功能候选 | 已移植 Azure SQL/Fabric 连接器并修复密钥日志与 SQL 查询问题；目标库连通待验 |
+| upstream/copilot/add-pendidikan-chart-visualization | 78019639 | 2 | 4 | 功能候选 | URL 代理跟随未验证重定向，暂缓 |
+| upstream/copilot/add-refresh-data-option | f611d1fa | 5 | 5 | 功能候选 | dev 已有新版数据刷新流程，旧实现被取代 |
 | upstream/copilot/automate-vagalite-script-testing | f2e1bf95 | 2 | 3 | 修复或测试候选 | 在 dev 集成后移植与验证 |
 | upstream/copilot/desktop-dev-candidate-20261008 | 50b36fbf | 4 | 7 | 桌面或构建 | 目标平台验证后决定 |
 | upstream/copilot/fix-20045b03-ae24-4926-9d07-8d79c5ac29cf | 2e4dc7c2 | 2 | 3 | 历史或实验 | 逐项评估 |
 | upstream/copilot/fix-canvas-native-compile-error | 6bc67abe | 2 | 3 | 桌面或构建 | 目标平台验证后决定 |
 | upstream/copilot/fix-chart-insight-error-message | 3afb1c13 | 0 | 0 | 历史或实验 | dev 已包含或为祖先 |
 | upstream/copilot/fix-dependabot-and-code-scanning-issues | ed2cef82 | 0 | 0 | 历史或实验 | dev 已包含或为祖先 |
-| upstream/copilot/fix-no-response-d-data-connector | 77989522 | 3 | 2 | 修复或测试候选 | 在 dev 集成后移植与验证 |
-| upstream/copilot/fix-remote-mysql-connection | 4451f254 | 5 | 4 | 修复或测试候选 | 在 dev 集成后移植与验证 |
+| upstream/copilot/fix-no-response-d-data-connector | 77989522 | 3 | 2 | 修复或测试候选 | 键盘冒泡修复已适配新版 DraftTextField |
+| upstream/copilot/fix-remote-mysql-connection | 4451f254 | 5 | 4 | 修复或测试候选 | 线程池退出仍等待，超时实现无效；暂缓 |
 | upstream/copilot/fix-windows-desktop-build | 5d4f7b32 | 0 | 0 | 桌面或构建 | 目标平台验证后决定 |
 | upstream/copilot/macos-esrp-candidate-20260913 | 87464cac | 8 | 14 | 桌面或构建 | 目标平台验证后决定 |
 | upstream/copilot/macos-input-20260913 | c0e76958 | 6 | 14 | 桌面或构建 | 目标平台验证后决定 |
@@ -64,16 +64,18 @@
 | upstream/dependabot/uv/requests-2.33.0 | 53096416 | 1 | 1 | 依赖维护 | 兼容性与安全审查后决定 |
 | upstream/dependabot/uv/soupsieve-2.9 | 0f396e32 | 1 | 1 | 依赖维护 | 兼容性与安全审查后决定 |
 | upstream/dependabot/uv/thrift-0.24.0 | a1e659e7 | 1 | 1 | 依赖维护 | 兼容性与安全审查后决定 |
-| upstream/dev | 92edd620 | 0 | 0 | 开发主线 | 隔离集成与验证 |
+| upstream/dev | 92edd620 | 0 | 0 | 开发主线 | 已合并到隔离分支并持续验证 |
 | upstream/docs/dev-guides-cleanup | ab5ad300 | 1 | 12 | 文档 | 与实际代码逐条核对 |
 | upstream/feature/i18n-react-i18next | ed706bcf | 0 | 0 | 历史或实验 | dev 已包含或为祖先 |
 | upstream/feature/plugin-architecture | fa5b59de | 1 | 0 | 功能历史 | 树差异为 0，核对合并记录 |
 | upstream/main | 5477f0e2 | 0 | 0 | 发布基线 | 0.8b1 已在知析 AI |
 | upstream/main-0.6 | eebe31a7 | 0 | 0 | 历史或实验 | dev 已包含或为祖先 |
 | upstream/main-0.7 | e55dca13 | 2 | 3 | 历史或实验 | 逐项评估 |
-| upstream/mcp | af95c28a | 4 | 5 | 旧架构功能候选 | 评估 MCP 服务移植契约 |
+| upstream/mcp | af95c28a | 4 | 5 | 旧架构功能候选 | 旧工作区和数据访问契约，需另建新版 MCP 适配层；未直接合并 |
 | upstream/mimetype-js | 1e2a8107 | 1 | 1 | 历史或实验 | 逐项评估 |
 | upstream/sso-test | c4e46049 | 0 | 0 | 历史或实验 | dev 已包含或为祖先 |
 | upstream/test-launch-debugger | 1ed02b27 | 1 | 1 | 历史或实验 | 逐项评估 |
 
 说明：仅在代码、测试和本地运行验证通过后，处理状态才可从“候选”改为“已集成”。历史、实验和依赖分支需要逐条说明取舍；不把分支名或提交数当成功能验收。
+
+本轮移植和暂缓的具体原因、测试边界见[逐批更新说明](updates/README.md)。`dependabot/*` 分支是相互独立的版本升级提议；未经兼容性测试不把它们逐一合入本次功能更新。桌面候选分支需要 Windows/macOS 安装包流水线，不以 Web 页面通过作为验收。

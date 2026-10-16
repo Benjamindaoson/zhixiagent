@@ -5,17 +5,17 @@
 
 ## 2. Integrate upstream dev
 
-- [ ] 2.1 Record the 0.8b1 ancestry and merge the current upstream `dev` into the isolated integration branch.
-- [ ] 2.2 Resolve every conflict using both source intents; retain Zhixi AI entry, layout, model gateway, streaming-text fix, and dashboard.
-- [ ] 2.3 Install dependencies in the integration worktree's local environments and repair type, import, and test failures.
-- [ ] 2.4 Verify interactive apps, workflow/schedule UI and routes, semantic data/connectors, model setup, locales, homepage, demos, and sample dashboard.
-- [ ] 2.5 Write the first Chinese update note with exact source commits, passed checks, and externally unverified paths.
+- [x] 2.1 Record the 0.8b1 ancestry and merge the current upstream `dev` into the isolated integration branch.
+- [x] 2.2 Resolve every conflict using both source intents; retain Zhixi AI entry, layout, model gateway, streaming-text fix, and dashboard.
+- [x] 2.3 Install dependencies in the integration worktree's local environments and repair type, import, and test failures.
+- [ ] 2.4 Verify interactive apps, workflow/schedule UI and routes, semantic data/connectors, model setup, locales, homepage, demos, and sample dashboard. (UI and model tested; final full backend run pending.)
+- [x] 2.5 Write the first Chinese update note with exact source commits, passed checks, and externally unverified paths.
 
 ## 3. Review feature branches outside dev
 
-- [ ] 3.1 Port compatible user-facing features and targeted fixes from unmerged product branches in separate reviewable batches.
-- [ ] 3.2 Verify each feature batch and write its Chinese update note before public delivery.
-- [ ] 3.3 Record reasons for excluding superseded, historical, platform-only, or dependency-only branches; apply safe dependency maintenance only after compatibility checks.
+- [x] 3.1 Port compatible user-facing features and targeted fixes from unmerged product branches in separate reviewable batches.
+- [x] 3.2 Verify each feature batch and write its Chinese update note before public delivery.
+- [x] 3.3 Record reasons for excluding superseded, historical, platform-only, or dependency-only branches; apply safe dependency maintenance only after compatibility checks.
 
 ## 4. Delivery gates
 
