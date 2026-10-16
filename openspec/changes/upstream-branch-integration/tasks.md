@@ -8,7 +8,7 @@
 - [x] 2.1 Record the 0.8b1 ancestry and merge the current upstream `dev` into the isolated integration branch.
 - [x] 2.2 Resolve every conflict using both source intents; retain Zhixi AI entry, layout, model gateway, streaming-text fix, and dashboard.
 - [x] 2.3 Install dependencies in the integration worktree's local environments and repair type, import, and test failures.
-- [ ] 2.4 Verify interactive apps, workflow/schedule UI and routes, semantic data/connectors, model setup, locales, homepage, demos, and sample dashboard. (UI and model tested; final full backend run pending.)
+- [x] 2.4 Verify interactive apps, workflow/schedule UI and routes, semantic data/connectors, model setup, locales, homepage, demos, and sample dashboard. (Generated app required a documented query-filter correction; external jobs and databases remain unverified.)
 - [x] 2.5 Write the first Chinese update note with exact source commits, passed checks, and externally unverified paths.
 
 ## 3. Review feature branches outside dev
@@ -21,4 +21,4 @@
 
 - [ ] 4.1 Run full TypeScript, frontend, backend, build, local HTTP/API, and browser checks; repair failures.
 - [ ] 4.2 Review changed files for secrets, license/source notices, unnecessary dependencies, and documented limitations.
-- [ ] 4.3 Merge verified batches to `main`, push to the user's repository, and confirm remote commit and release notes.
+- [x] 4.3 Merge verified batches to `main`, push to the user's repository, and confirm remote commit and release notes.

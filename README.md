@@ -66,6 +66,12 @@
 
 ![Stock Prices 图表画布中的 Chartifact 导出入口](docs/media/chartifact-export.png)
 
+### 5. 让分析结果变成交互应用
+
+在 Stock Prices 示例中选择“创建应用”，分析助手会读取会话中的 `history` 表并生成可预览的 React 仪表板。下图是本地实测的股票表现应用：切换到 **Q4 2025** 后，指标和两张图随日期范围更新。生成内容可在画布中继续编辑；模型初稿若使用了不受支持的数据过滤操作，需要按 `@df/data` 的 `range` 过滤格式修正。截图展示的是完成该修正后的实际运行结果。
+
+![Stock Prices 交互应用切换 Q4 2025 后的运行结果](docs/media/interactive-app-q4.png)
+
 ## 能做什么
 
 | 环节 | 操作 |
