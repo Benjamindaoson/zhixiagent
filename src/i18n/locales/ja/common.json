@@ -413,6 +413,11 @@
   "canvas": {
     "close": "キャンバスを閉じます"
   },
+  "dashboard": {
+    "open": "インタラクティブダッシュボード",
+    "title": "インタラクティブダッシュボード",
+    "back": "分析に戻る"
+  },
   "dataThread": {
     "title": "データスレッド",
     "refreshNow": "今すぐ更新",
@@ -797,6 +802,7 @@
     "newSessionTooltip": "新しいセッション",
     "exit": "終了します",
     "exitSessionTooltip": "セッションを終了します",
+    "returnHome": "ホームに戻る",
     "recoveredSession": "復元されたセッション",
     "errorOccurred": "エラーが発生しました。",
     "refreshSession": "セッションを更新",

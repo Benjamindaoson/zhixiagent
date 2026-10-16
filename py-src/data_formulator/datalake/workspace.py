@@ -1502,11 +1502,40 @@ class Workspace:
 
         Used by session load / import to restore a previously saved workspace.
         """
-        if self._path.exists():
-            shutil.rmtree(self._path)
         self._path.mkdir(parents=True, exist_ok=True)
-        if src.exists():
-            shutil.copytree(src, self._path, dirs_exist_ok=True)
+        if not src.exists():
+            return
+
+        # Keep workspace.yaml present throughout the restore. Removing the
+        # whole directory lets a concurrent request open the half-restored
+        # workspace and initialize an empty metadata file, losing every table
+        # from an imported example session.
+        snapshot_files = {
+            path.relative_to(src): path for path in src.rglob("*") if path.is_file()
+        }
+        existing_files = {
+            path.relative_to(self._path) for path in self._path.rglob("*") if path.is_file()
+        }
+        metadata_rel = Path("workspace.yaml")
+        lock_rel = Path(".workspace.lock")
+        for relative, source in snapshot_files.items():
+            if relative in (metadata_rel, lock_rel):
+                continue
+            destination = self._path / relative
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, destination)
+
+        if metadata_rel in snapshot_files:
+            staged = self._path / f".workspace_restore_{uuid.uuid4().hex}.tmp"
+            try:
+                shutil.copy2(snapshot_files[metadata_rel], staged)
+                os.replace(staged, self._path / metadata_rel)
+            finally:
+                staged.unlink(missing_ok=True)
+
+        for relative in existing_files - snapshot_files.keys() - {lock_rel}:
+            (self._path / relative).unlink(missing_ok=True)
+        self.invalidate_metadata_cache()
 
     # ------------------------------------------------------------------
     # Export / Import

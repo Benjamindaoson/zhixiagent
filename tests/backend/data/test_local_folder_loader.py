@@ -175,6 +175,7 @@ class TestLocalFolderDataLoader:
         with pytest.raises(ValueError, match="Source is not a file"):
             loader.query_data_as_arrow("*.parquet", {}, 5)
 
+    @pytest.mark.skipif(os.name == "nt", reason="Windows filenames cannot contain glob characters")
     def test_native_query_treats_glob_characters_as_literal(self, tmp_path):
         pq.write_table(pa.table({"value": [7]}), tmp_path / "[literal]*.parquet")
         pq.write_table(pa.table({"value": [99]}), tmp_path / "literal.parquet")

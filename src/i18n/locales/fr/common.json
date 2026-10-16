@@ -413,6 +413,11 @@
   "canvas": {
     "close": "Fermer le canevas"
   },
+  "dashboard": {
+    "open": "Tableau de bord interactif",
+    "title": "Tableau de bord interactif",
+    "back": "Retour à l’analyse"
+  },
   "dataThread": {
     "title": "Data Threads",
     "refreshNow": "Actualiser maintenant",
@@ -796,6 +801,7 @@
     "newSessionTooltip": "Nouvelle session",
     "exit": "Quitter",
     "exitSessionTooltip": "Quitter la session",
+    "returnHome": "Retour à l’accueil",
     "recoveredSession": "Session récupérée",
     "errorOccurred": "Une erreur est survenue, veuillez",
     "refreshSession": "actualiser la session",

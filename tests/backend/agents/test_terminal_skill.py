@@ -10,6 +10,7 @@ import pytest
 
 terminal = importlib.import_module("data_formulator.analyst.skills.terminal.skill")
 pytestmark = [pytest.mark.backend]
+posix_terminal = pytest.mark.skipif(sys.platform == "win32", reason="Terminal sandbox is supported on macOS and Linux")
 
 
 @pytest.fixture(autouse=True)
@@ -91,6 +92,7 @@ def test_terminal_policy_controls_first_turn_prompt_and_tools(tmp_path, monkeypa
 
 @pytest.mark.slow
 @pytest.mark.parametrize("ignore_interrupt", [False, True])
+@posix_terminal
 def test_terminal_pause_retains_partial_output_and_stops_process(tmp_path, ignore_interrupt):
     from threading import Event
     import time
@@ -113,6 +115,7 @@ def test_terminal_pause_retains_partial_output_and_stops_process(tmp_path, ignor
 
 
 @pytest.mark.slow
+@posix_terminal
 def test_terminal_acquired_data_can_be_analyzed_and_published_without_connector(tmp_path):
     from data_formulator.analyst.agent import AnalystAgent
     from data_formulator.analyst.skills.analysis.skill import get_skill as analysis_skill
@@ -191,6 +194,7 @@ def test_terminal_policy_change_invalidates_approval(tmp_path):
 
 
 @pytest.mark.parametrize("mode", ["off", "auto"])
+@posix_terminal
 def test_terminal_action_obeys_policy_without_client_override(tmp_path, monkeypatch, mode):
     from data_formulator.analyst.skills.base import SkillContext
     from data_formulator.datalake.workspace import Workspace
@@ -227,6 +231,7 @@ def test_terminal_action_obeys_policy_without_client_override(tmp_path, monkeypa
 
 
 @pytest.mark.parametrize("mode", ["ask", "auto"])
+@posix_terminal
 def test_unsandboxed_action_always_requires_approval(tmp_path, monkeypatch, mode):
     from data_formulator.analyst.skills.base import SkillContext
     from data_formulator.datalake.workspace import Workspace
@@ -255,6 +260,7 @@ def test_unsandboxed_action_always_requires_approval(tmp_path, monkeypatch, mode
 
 
 @pytest.mark.parametrize("decision", [None, "auto", "ask", "reject", "approve"])
+@posix_terminal
 def test_unsandboxed_runner_requires_approval(tmp_path, decision):
     scratch = tmp_path / "scratch"
     scratch.mkdir()
@@ -280,6 +286,7 @@ def test_unsandboxed_request_requires_reason(tmp_path, reason):
         })
 
 
+@posix_terminal
 def test_default_state_write_executes_immediately_in_auto(tmp_path, monkeypatch):
     from data_formulator.analyst.skills.base import SkillContext
     from data_formulator.datalake.workspace import Workspace
@@ -313,6 +320,7 @@ def test_terminal_rejects_legacy_write_grants(tmp_path, paths):
         })
 
 
+@posix_terminal
 def test_analyst_auto_terminal_cancellation_closes_command(tmp_path, monkeypatch):
     from unittest.mock import MagicMock
     from data_formulator.analyst.agent import AnalystAgent
@@ -345,6 +353,7 @@ def test_analyst_auto_terminal_cancellation_closes_command(tmp_path, monkeypatch
         assert closed == [True]
 
 
+@posix_terminal
 def test_terminal_confines_writes_and_child_processes_to_scratch(tmp_path):
     scratch = tmp_path / "scratch"
     scratch.mkdir()
@@ -375,6 +384,7 @@ def test_terminal_confines_writes_and_child_processes_to_scratch(tmp_path):
 
 
 @pytest.mark.parametrize("configured", [False, True])
+@posix_terminal
 def test_terminal_policy_allows_atomic_updates_but_protects_other_home_files(tmp_path, configured):
     from data_formulator.configuration import save_configuration
 
@@ -444,6 +454,7 @@ def test_runner_refuses_legacy_write_grants(tmp_path, decision):
     spawn.assert_not_called()
 
 
+@posix_terminal
 def test_terminal_runtime_state_is_private_and_disposable(tmp_path):
     code = (
         "import json, os, pathlib\n"
@@ -475,6 +486,7 @@ def test_terminal_revalidates_policy_paths_before_execution(tmp_path):
 
 
 @pytest.mark.parametrize("state_path", terminal.DEFAULT_ALLOW_WRITE)
+@posix_terminal
 def test_terminal_default_policy_allows_cli_state_without_approval(tmp_path, state_path):
     scratch = tmp_path / "scratch"
     scratch.mkdir()
@@ -489,6 +501,7 @@ def test_terminal_default_policy_allows_cli_state_without_approval(tmp_path, sta
     assert target.read_text() == "changed"
 
 
+@posix_terminal
 def test_terminal_configured_policy_replaces_defaults_and_is_reusable(tmp_path):
     from data_formulator.configuration import save_configuration
 
@@ -509,6 +522,7 @@ def test_terminal_configured_policy_replaces_defaults_and_is_reusable(tmp_path):
     assert terminal.sandbox_filesystem_policy()["allowWrite"] == []
 
 
+@posix_terminal
 def test_terminal_default_policy_rejects_redirects_and_creates_only_cache_children(tmp_path, monkeypatch):
     home = terminal.Path.home()
     (home / ".azure").symlink_to(tmp_path, target_is_directory=True)
@@ -565,6 +579,7 @@ def test_linux_terminal_mounts_host_read_only_and_scratch_writable(tmp_path, mon
         "--bind", str(state.resolve()), str(state.resolve())]
 
 
+@posix_terminal
 def test_terminal_hides_df_secrets_and_api_port(tmp_path, monkeypatch):
     secret = tmp_path / ".vault_key"
     secret.write_text("key")
@@ -591,6 +606,7 @@ def test_terminal_protects_existing_df_secret_files(tmp_path, monkeypatch):
                                           str((tmp_path / "configuration.json").resolve())]
 
 
+@posix_terminal
 def test_vault_key_is_owner_only(tmp_path):
     from data_formulator.auth.vault import _resolve_key
 
@@ -618,6 +634,7 @@ def test_terminal_approval_is_exact_owned_and_single_use(tmp_path):
         broker.consume(proposal["id"], "local:user", "chat", workspace_id="workspace")
 
 
+@posix_terminal
 def test_terminal_runner_limits_output_and_timeout(tmp_path):
     result = list(terminal.run_command({"argv": [sys.executable, "-c", "print('x' * 40000)"],
                                        "cwd": str(tmp_path), "timeout_seconds": 5}, scratch_dir=tmp_path))[-1]["result"]
@@ -646,6 +663,7 @@ def test_terminal_rejects_invalid_commands(tmp_path, argv):
     (True, "http://evil.example", "http://evil.example", False),
     (True, "http://localhost:5173", "http://localhost", False),
 ])
+@posix_terminal
 def test_terminal_requires_local_same_origin(monkeypatch, local, origin, host, allowed):
     monkeypatch.setattr("data_formulator.auth.identity.is_local_mode", lambda: local)
     app = flask.Flask(__name__)
@@ -667,6 +685,7 @@ def test_terminal_registered_as_committing_action():
     assert registry.action_required_fields("run_terminal") == ("argv", "cwd", "purpose")
 
 
+@posix_terminal
 def test_closing_terminal_stream_kills_process_group(tmp_path):
     processes = []
     original_spawn = terminal.subprocess.Popen
@@ -694,6 +713,7 @@ def test_closing_terminal_stream_kills_process_group(tmp_path):
     (1, "Authentication required: sign in to your account", False),
     (0, "Operation not permitted: ~/.azure/msal_token_cache.json.lockfile", False),
 ])
+@posix_terminal
 def test_terminal_reports_access_denial_without_guessing_its_source(tmp_path, exit_code, output, blocked):
     result = list(terminal.run_command({
         "argv": [sys.executable, "-c", "import sys; print(sys.argv[1]); sys.exit(int(sys.argv[2]))", output, str(exit_code)],
@@ -709,6 +729,7 @@ def test_terminal_reports_access_denial_without_guessing_its_source(tmp_path, ex
         assert "error" not in result
 
 
+@posix_terminal
 def test_terminal_does_not_inherit_server_secrets(tmp_path, monkeypatch):
     monkeypatch.setenv("OPENAI_API_KEY", "server-only-secret")
     monkeypatch.setenv("AWS_PROFILE", "data-reader")
@@ -723,6 +744,7 @@ def test_terminal_does_not_inherit_server_secrets(tmp_path, monkeypatch):
 @pytest.mark.parametrize("decision", ["approve", "reject"])
 @pytest.mark.parametrize("mode", ["ask", "auto"])
 @pytest.mark.parametrize("unsandboxed", [False, True])
+@posix_terminal
 def test_terminal_route_executes_stored_command_and_resumes_analyst(tmp_path, decision, mode, unsandboxed):
     from data_formulator.routes.agents import agent_bp
     from data_formulator.datalake.workspace import Workspace
@@ -788,6 +810,7 @@ def test_expired_terminal_request_is_not_authorization(tmp_path):
         broker.consume(proposal["id"], "owner", "chat")
 
 
+@posix_terminal
 def test_terminal_skill_proposes_without_execution(tmp_path, monkeypatch):
     from data_formulator.analyst.skills.base import SkillContext
 

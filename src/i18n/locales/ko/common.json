@@ -413,6 +413,11 @@
   "canvas": {
     "close": "캔버스 닫기"
   },
+  "dashboard": {
+    "open": "대화형 대시보드",
+    "title": "대화형 대시보드",
+    "back": "분석으로 돌아가기"
+  },
   "dataThread": {
     "title": "데이터 스레드",
     "refreshNow": "지금 새로고침",
@@ -796,6 +801,7 @@
     "newSessionTooltip": "새 세션",
     "exit": "나가기",
     "exitSessionTooltip": "세션 나가기",
+    "returnHome": "홈으로 돌아가기",
     "recoveredSession": "복구된 세션",
     "errorOccurred": "오류가 발생했습니다.",
     "refreshSession": "세션 새로고침",

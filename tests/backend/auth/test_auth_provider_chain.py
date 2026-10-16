@@ -98,6 +98,16 @@ class TestInitAuth:
         init_auth(app)
         assert auth_module._allow_anonymous is False
 
+    def test_localhost_unicode_account_has_stable_local_identity(self, app, monkeypatch):
+        app.config["CLI_ARGS"] = {"host": "127.0.0.1"}
+        monkeypatch.delenv("AUTH_PROVIDER", raising=False)
+        monkeypatch.setattr(auth_module.getpass, "getuser", lambda: "Admin（无密码）")
+        init_auth(app)
+        identity = auth_module._localhost_identity
+        assert identity is not None and identity.startswith("local:os-")
+        with app.test_request_context(headers={"X-Identity-Id": "browser:spoofed"}):
+            assert get_identity_id() == identity
+
 
 # ------------------------------------------------------------------
 # get_identity_id — provider dispatch

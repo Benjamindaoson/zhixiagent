@@ -1,4 +1,5 @@
 import json
+import sys
 
 import pytest
 
@@ -797,6 +798,7 @@ def test_configuration_api_save_conflict_and_environment_lock(config_client, mon
     assert read_configuration()['revision'] == 1
 
 
+@pytest.mark.skipif(sys.platform == 'win32', reason='The agent terminal is available only on macOS and Linux')
 @pytest.mark.parametrize('mode', ['off', 'ask', 'auto'])
 def test_local_terminal_settings_without_administration(config_client, monkeypatch, mode):
     from data_formulator.routes import configurations
@@ -847,6 +849,7 @@ def test_local_terminal_settings_reject_untrusted_changes(config_client, monkeyp
     assert read_configuration()['revision'] == 0
 
 
+@pytest.mark.skipif(sys.platform == 'win32', reason='The agent terminal is available only on macOS and Linux')
 def test_local_terminal_settings_save_and_reset_write_paths(config_client, monkeypatch, tmp_path):
     from data_formulator.routes import configurations
     monkeypatch.setattr('data_formulator.auth.identity.is_local_mode', lambda: True)
@@ -890,6 +893,7 @@ def test_local_terminal_settings_reject_invalid_write_paths(config_client, monke
     assert read_configuration()['revision'] == 0
 
 
+@pytest.mark.skipif(sys.platform == 'win32', reason='The agent terminal is available only on macOS and Linux')
 def test_terminal_configuration_api_policy_and_environment_lock(config_client, monkeypatch):
     monkeypatch.setattr('data_formulator.auth.identity.is_local_mode', lambda: True)
     monkeypatch.setattr('data_formulator.configuration.user_connectors_disabled', lambda: False)

@@ -48,7 +48,16 @@ def _isolate_saved_configuration(tmp_path_factory, monkeypatch):
     default = Path.home() / ".data_formulator" / "configuration.json"
     isolated = tmp_path_factory.mktemp("configuration") / "configuration.json"
     original = configuration.configuration_path
-    monkeypatch.setattr(configuration, "configuration_path", lambda: isolated if original() == default else original())
+
+    def isolated_configuration_path():
+        # Windows cannot resolve Path.home() while a test clears os.environ.
+        try:
+            path = original()
+        except RuntimeError:
+            return isolated
+        return isolated if path == default else path
+
+    monkeypatch.setattr(configuration, "configuration_path", isolated_configuration_path)
 
 
 def pytest_addoption(parser):

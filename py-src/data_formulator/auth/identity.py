@@ -18,6 +18,7 @@ Security Model:
 """
 
 import getpass
+import hashlib
 import logging
 import os
 import re
@@ -115,7 +116,15 @@ def init_auth(app: Flask) -> None:
         if host in ('127.0.0.1', 'localhost', '::1'):
             try:
                 username = getpass.getuser()
-                validated = _validate_identity_value(username, "os_username")
+                if not username.strip():
+                    raise ValueError("Empty OS username")
+                try:
+                    validated = _validate_identity_value(username, "os_username")
+                except ValueError:
+                    # Local Windows account names can contain spaces or Unicode.
+                    # Keep the identity stable without accepting those characters
+                    # as a path component or changing existing ASCII identities.
+                    validated = f"os-{hashlib.sha256(username.encode('utf-8')).hexdigest()}"
                 _localhost_identity = f"local:{validated}"
                 logger.info(
                     "Auth mode: single-user localhost (identity=%s)",

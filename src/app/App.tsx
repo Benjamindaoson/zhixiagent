@@ -1108,9 +1108,9 @@ const AppShell: FC = () => {
     const exitSession = useExitSession();
     const inSession = isAppPage && inWorkspaceSession;
     const returnHome = useCallback(async () => {
-        if (activeWorkspace) await exitSession();
+        if (inWorkspaceSession) await exitSession();
         navigate('/');
-    }, [activeWorkspace, exitSession, navigate]);
+    }, [inWorkspaceSession, exitSession, navigate]);
 
     return (
         <Box sx={{

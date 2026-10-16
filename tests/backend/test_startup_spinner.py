@@ -19,6 +19,7 @@ class CP1252TTY(io.StringIO):
 
 @pytest.mark.parametrize("raises", [False, True])
 def test_spinner_output_is_cp1252_safe(monkeypatch, raises):
+    monkeypatch.delenv("TERM", raising=False)
     stream = CP1252TTY()
     monkeypatch.setattr(_startup_spinner.sys, "stdout", stream)
     monkeypatch.setattr(_startup_spinner, "_FRAME_INTERVAL", 0.001)

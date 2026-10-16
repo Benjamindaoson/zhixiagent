@@ -413,6 +413,11 @@
   "canvas": {
     "close": "Tutup kanvas"
   },
+  "dashboard": {
+    "open": "Dasbor interaktif",
+    "title": "Dasbor interaktif",
+    "back": "Kembali ke analisis"
+  },
   "dataThread": {
     "title": "Utas Data",
     "refreshNow": "Segarkan sekarang",
@@ -797,6 +802,7 @@
     "newSessionTooltip": "Sesi Baru",
     "exit": "Keluar",
     "exitSessionTooltip": "Keluar sesi",
+    "returnHome": "Kembali ke beranda",
     "recoveredSession": "Sesi Terpulihkan",
     "errorOccurred": "Terjadi kesalahan, silakan",
     "refreshSession": "segarkan sesi",

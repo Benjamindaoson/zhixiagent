@@ -6,6 +6,7 @@ Covers the pure ``compile_probe_sql`` compiler and the base-class
 from __future__ import annotations
 
 from datetime import date
+import sys
 from typing import Any
 from unittest.mock import Mock, patch
 
@@ -35,6 +36,7 @@ pytestmark = [pytest.mark.backend]
     ("jsonl", '{"key":"first"}\n{"key":"second","value":2}\n',
      [{"key": "first", "value": None}, {"key": "second", "value": 2}]),
 ])
+@pytest.mark.skipif(sys.platform == "win32", reason="Windows does not allow a literal '*' in a filename")
 def test_native_text_reader_compatibility(tmp_path, extension, content, expected):
     path = tmp_path / f"[literal]*.{extension}"
     path.write_text(content, encoding="utf-8")

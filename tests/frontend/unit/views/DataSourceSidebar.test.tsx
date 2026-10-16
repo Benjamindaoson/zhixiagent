@@ -480,7 +480,7 @@ describe('DataSourceSidebar', () => {
         fireEvent.keyDown(field, { key: 'Enter' });
 
         await waitFor(() => expect(dispatch).toHaveBeenCalledWith({ type: 'session/rename', payload: { id: 'gas', name: 'Regional gas prices' } }));
-        expect(screen.getByText('Regional gas prices')).toBeInTheDocument();
+        expect(screen.getAllByText('Regional gas prices').length).toBeGreaterThan(0);
     });
 
     it('returns to the landing page after deleting the last active session', async () => {

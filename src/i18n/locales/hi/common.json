@@ -413,6 +413,11 @@
   "canvas": {
     "close": "कैनवास बंद करें"
   },
+  "dashboard": {
+    "open": "इंटरैक्टिव डैशबोर्ड",
+    "title": "इंटरैक्टिव डैशबोर्ड",
+    "back": "विश्लेषण पर वापस"
+  },
   "dataThread": {
     "title": "डेटा थ्रेड्स",
     "refreshNow": "अभी रिफ्रेश करें",
@@ -797,6 +802,7 @@
     "newSessionTooltip": "नया सत्र",
     "exit": "बाहर निकलें",
     "exitSessionTooltip": "सत्र से बाहर निकलें",
+    "returnHome": "होम पर लौटें",
     "recoveredSession": "पुनर्प्राप्त सत्र",
     "errorOccurred": "एक त्रुटि हुई है, कृपया",
     "refreshSession": "सत्र रिफ्रेश करें",

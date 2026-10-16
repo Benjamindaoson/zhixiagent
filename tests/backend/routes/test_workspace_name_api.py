@@ -115,6 +115,7 @@ def test_helper_routes_use_small_model(flask_client, route, agent_name, payload,
         agent.return_value.run.return_value = result
         response = flask_client.post(
             f"/api/agent/{route}", json={"model": model_config, **payload},
+            headers={"X-Identity-Id": "local:test-user"},
         )
 
     assert response.status_code == 200
