@@ -19,6 +19,6 @@
 
 ## 4. Delivery gates
 
-- [ ] 4.1 Run full TypeScript, frontend, backend, build, local HTTP/API, and browser checks; repair failures.
-- [ ] 4.2 Review changed files for secrets, license/source notices, unnecessary dependencies, and documented limitations.
+- [x] 4.1 Run full TypeScript, frontend, backend, build, local HTTP/API, and browser checks; repair failures.
+- [x] 4.2 Review changed files for secrets, license/source notices, unnecessary dependencies, and documented limitations.
 - [x] 4.3 Merge verified batches to `main`, push to the user's repository, and confirm remote commit and release notes.
