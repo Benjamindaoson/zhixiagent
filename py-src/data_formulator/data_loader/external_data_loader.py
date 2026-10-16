@@ -159,7 +159,7 @@ def _merge_source_metadata(
             col.description = src["description"] or None
 
 # Sensitive parameter names that should be excluded from stored metadata
-SENSITIVE_PARAMS = {'password', 'api_key', 'secret', 'token', 'access_token', 'refresh_token', 'access_key', 'secret_key'}
+SENSITIVE_PARAMS = {'password', 'api_key', 'secret', 'token', 'access_token', 'refresh_token', 'access_key', 'secret_key', 'client_secret'}
 
 # Valid operators for filter conditions (prevents SQL injection via operator field)
 _VALID_OPERATORS = frozenset({

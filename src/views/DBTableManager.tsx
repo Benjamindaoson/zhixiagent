@@ -90,6 +90,7 @@ const DraftTextField = React.memo(function DraftTextField({
                 setDraft(nextValue);
                 onDraftChange(nextValue);
             }}
+            onKeyDown={(event) => event.stopPropagation()}
             onBlur={() => onCommit(draft)}
         />
     );

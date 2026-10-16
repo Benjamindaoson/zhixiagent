@@ -63,6 +63,8 @@ _LOADER_SPECS: list[tuple[str, str, str, str]] = [
     ("mysql",      "data_formulator.data_loader.mysql_data_loader",      "MySQLDataLoader",      "pymysql"),
     ("clickhouse", "data_formulator.data_loader.clickhouse_data_loader", "ClickHouseDataLoader", "clickhouse-connect"),
     ("mssql",      "data_formulator.data_loader.mssql_data_loader",      "MSSQLDataLoader",      "mssql-python"),
+    ("azure_sql",  "data_formulator.data_loader.azure_sql_data_loader", "AzureSQLDataLoader", "connectorx or pyodbc"),
+    ("fabric_lakehouse", "data_formulator.data_loader.fabric_lakehouse_data_loader", "FabricLakehouseDataLoader", "pyodbc"),
     ("postgresql", "data_formulator.data_loader.postgresql_data_loader",  "PostgreSQLDataLoader", "psycopg2-binary"),
     ("kusto",      "data_formulator.data_loader.kusto_data_loader",      "KustoDataLoader",      "azure-kusto-data"),
     ("databricks", "data_formulator.data_loader.databricks_data_loader", "DatabricksDataLoader", "databricks-sql-connector"),
@@ -112,7 +114,7 @@ _BUILTIN_CATALOG_POLICIES: dict[str, CatalogCachePolicy] = {
             automatic_refresh="while_connected",
             automatic_refresh_kind="full",
         )
-        for key in ("mysql", "postgresql", "mssql", "clickhouse", "cube")
+        for key in ("mysql", "postgresql", "mssql", "azure_sql", "fabric_lakehouse", "clickhouse", "cube")
     },
     **{
         key: CatalogCachePolicy(
