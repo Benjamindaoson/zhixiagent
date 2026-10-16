@@ -14,11 +14,39 @@
 
 ![知析 AI 首页：问题输入、示例数据和数据导入入口](docs/media/home.jpg)
 
-### 2. 在工作区分析
+### 2. 五个示例，一次看全
 
-下图是在本地打开 **Stock Prices** 示例会话的实际运行画面：左侧是股票收盘价图表及数据表，右侧是数据源与分析过程。可继续提问、编辑图表，或返回首页重新打开已保存会话。
+以下截图均来自本地运行的内置示例会话，展示了进入工作区后的实际界面。左侧是分析画布，右侧是数据源与分析线程；示例中的报告和图表随会话加载，无需另外发起模型请求。图表及报告中的结论仅用于演示，请结合原始数据核查。
 
-![知析 AI 运行案例：左侧股票图表和数据表，右侧分析对话](docs/media/workspace.jpg)
+#### Stock Prices · 股票价格
+
+比较 GOOGL 与 MSFT 的收盘价走势，并查看图表下方的数据表。
+
+![Stock Prices 示例：股票收盘价图表、数据表与分析线程](docs/media/stock-prices.jpg)
+
+#### Gas Prices · 燃油价格
+
+查看燃油价格变化、价格波动分析报告与后续预测线程。
+
+![Gas Prices 示例：燃油价格分析报告与图表线程](docs/media/gas-prices.jpg)
+
+#### Global Energy · 全球能源
+
+用国家间可再生能源占比图表，查看能源转型分析报告。
+
+![Global Energy 示例：可再生能源占比图表与分析报告](docs/media/global-energy.jpg)
+
+#### Movies · 电影数据
+
+对照制作预算、影评评分和利润，查看热力图与分析结论。
+
+![Movies 示例：预算、评分与利润热力图及分析线程](docs/media/movies.jpg)
+
+#### Unemployment · 行业失业率
+
+比较金融危机期间不同行业的失业率走势，并浏览相关分析线程。
+
+![Unemployment 示例：行业失业率折线图与分析报告](docs/media/unemployment.jpg)
 
 ## 能做什么
 
