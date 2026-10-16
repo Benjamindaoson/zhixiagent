@@ -126,6 +126,8 @@ npm run build
 
 本地验证记录：TypeScript 检查通过；前端测试 **396/396** 通过；生产构建成功；在浏览器中验证了首页提问进入工作区、打开示例会话及返回首页。模型 API 的实际可用性仍取决于你的配置和服务状态。
 
+当前代码底座对应上游 `0.8b1`。后续 `dev` 分支的功能正在按能力评估，尚未计入本仓库的已实现功能；提交对照和集成验收边界见[上游版本与渐进集成记录](docs/upstream-integration.md)。
+
 ## 许可与来源
 
 本项目基于 [Microsoft Data Formulator](https://github.com/microsoft/data-formulator) 修改，遵循仓库中的 [MIT License](LICENSE)。原项目的版权和许可声明保留在源码及许可证文件中；本仓库的界面定制不代表与微软存在官方关联。
