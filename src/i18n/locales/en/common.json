@@ -409,6 +409,11 @@
   "canvas": {
     "close": "Close canvas"
   },
+  "dashboard": {
+    "open": "Interactive dashboard",
+    "title": "Interactive dashboard",
+    "back": "Back to analysis"
+  },
   "dataThread": {
     "title": "Data Threads",
     "refreshNow": "Refresh now",

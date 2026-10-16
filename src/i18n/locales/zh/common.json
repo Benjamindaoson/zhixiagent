@@ -409,6 +409,11 @@
   "canvas": {
     "close": "关闭画布"
   },
+  "dashboard": {
+    "open": "交互式仪表盘",
+    "title": "交互式仪表盘",
+    "back": "返回分析"
+  },
   "dataThread": {
     "title": "数据线程",
     "refreshNow": "立即刷新",

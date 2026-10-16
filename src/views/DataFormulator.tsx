@@ -59,6 +59,7 @@ import exampleImageTable from "../assets/example-image-table.png";
 import { ModelSelectionButton } from './ModelSelectionDialog';
 import { UnifiedDataUploadDialog, UploadTabType, DataLoadMenu, ConnectorInstance } from './UnifiedDataUploadDialog';
 import { ReportView } from './ReportView';
+import { InteractiveDashboard } from './InteractiveDashboard';
 import { DataSourceSidebar } from './DataSourceSidebar';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { ExampleSession, exampleSessions, ExampleSessionCard, fetchExampleSessions } from './ExampleSessions';
@@ -104,6 +105,8 @@ export const DataFormulatorFC = ({ }) => {
     const hasInputTables = useSelector((state: DataFormulatorState) => state.inputTables.length > 0);
     const activeWorkspace = useSelector((state: DataFormulatorState) => state.activeWorkspace);
     const canvasTarget = useSelector(dfSelectors.selectCanvasTarget);
+    const tableCount = useSelector((state: DataFormulatorState) => dfSelectors.getAllTables(state).length);
+    const [dashboardOpen, setDashboardOpen] = useState(false);
     const [canvasClosing, setCanvasClosing] = useState(false);
     const models = useSelector(dfSelectors.getAllModels);
     const selectedModelId = useSelector((state: DataFormulatorState) => state.selectedModelId);
@@ -591,18 +594,27 @@ export const DataFormulatorFC = ({ }) => {
     // The canvas shows the focused item, and nothing else opens or closes it.
     // Resolved, not raw: a text turn with no chart or table behind it (an
     // explanation on a rootless thread) has nothing to draw, so stay closed.
-    const canvasOpen = !!canvasTarget && !canvasClosing;
+    const canvasOpen = (!!canvasTarget || dashboardOpen) && !canvasClosing;
+
+    // Focusing another result or changing sessions restores the original canvas.
+    const canvasTargetKey = JSON.stringify(canvasTarget);
+    useEffect(() => { setDashboardOpen(false); }, [activeWorkspace?.id, canvasTargetKey]);
 
     useEffect(() => {
         if (!isPhone) return;
-        setPhonePane(canvasTarget ? 'canvas' : 'thread');
-    }, [isPhone, canvasTarget]);
+        setPhonePane(canvasTarget || dashboardOpen ? 'canvas' : 'thread');
+    }, [isPhone, canvasTargetKey, dashboardOpen]);
 
     // Closing collapses the pane first and drops the focus only once it has
     // gone; clearing focus up front would swap the chart for the empty-canvas
     // gallery and slide *that* away.
     const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const closeCanvas = useCallback(() => {
+        if (dashboardOpen) {
+            setDashboardOpen(false);
+            if (!canvasTarget) setPhonePane('thread');
+            return;
+        }
         setPhonePane('thread');
         setCanvasClosing(true);
         if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
@@ -611,7 +623,7 @@ export const DataFormulatorFC = ({ }) => {
             setCanvasClosing(false);
             dispatch(dfActions.setFocused(undefined));
         }, CANVAS_TRANSITION_MS);
-    }, [dispatch]);
+    }, [dispatch, dashboardOpen, canvasTargetKey]);
     useEffect(() => () => { if (closeTimerRef.current) clearTimeout(closeTimerRef.current); }, []);
     useEffect(() => {
         // Something grabbed focus mid-close (a new table, say) — keep the canvas.
@@ -649,10 +661,14 @@ export const DataFormulatorFC = ({ }) => {
 
     const threadPanel = (
         <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column', minHeight: 0, backgroundColor: '#FBFCFD' }}>
-            {!isPhone && <Box sx={{ height: 38, flexShrink: 0, px: 2, display: 'flex', alignItems: 'center', gap: 1, borderBottom: '1px solid #E4ECF1', color: '#31546A' }}>
+            <Box sx={{ height: 38, flexShrink: 0, px: 2, display: 'flex', alignItems: 'center', gap: 1, borderBottom: '1px solid #E4ECF1', color: '#31546A' }}>
                 <ForumOutlinedIcon sx={{ fontSize: 17, color: '#168A89' }} />
                 <Typography sx={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.04em' }}>AI 分析对话</Typography>
-            </Box>}
+                <Button size="small" disabled={tableCount === 0} onClick={() => { setDashboardOpen(true); setPhonePane('canvas'); }}
+                    sx={{ ml: 'auto', fontSize: 11, textTransform: 'none', whiteSpace: 'nowrap' }}>
+                    {t('dashboard.open', { defaultValue: '交互式仪表盘' })}
+                </Button>
+            </Box>
             <DataThread centered={!canvasOpen} denseColumns={isPhone} sx={{
                 display: 'flex', flexDirection: 'column', overflow: 'hidden',
                 alignContent: 'flex-start', flex: 1, minHeight: 0,
@@ -668,7 +684,10 @@ export const DataFormulatorFC = ({ }) => {
         }}>
             {!isPhone && <Box sx={{ height: 38, flexShrink: 0, px: 2, display: 'flex', alignItems: 'center', gap: 1, borderBottom: '1px solid #E4ECF1', color: '#31546A' }}>
                 <AutoGraphIcon sx={{ fontSize: 17, color: '#168A89' }} />
-                <Typography sx={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.04em' }}>数据画布</Typography>
+                <Typography sx={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.04em' }}>{dashboardOpen ? t('dashboard.title', { defaultValue: '交互式仪表盘' }) : '数据画布'}</Typography>
+                {dashboardOpen && canvasTarget && <Button size="small" onClick={() => setDashboardOpen(false)} sx={{ ml: 1, fontSize: 11, textTransform: 'none' }}>
+                    {t('dashboard.back', { defaultValue: '返回分析' })}
+                </Button>}
             </Box>}
             <Tooltip title={t('canvas.close', { defaultValue: 'Close canvas' })}>
                 <IconButton
@@ -684,7 +703,7 @@ export const DataFormulatorFC = ({ }) => {
                 </IconButton>
             </Tooltip>
             <Box sx={{ flex: 1, minHeight: 0, overflow: 'hidden' }}>
-                {viewMode === 'editor' ? visPane : <ReportView />}
+                {dashboardOpen ? <InteractiveDashboard /> : viewMode === 'editor' ? visPane : <ReportView />}
             </Box>
         </Box>
     );
@@ -711,13 +730,13 @@ export const DataFormulatorFC = ({ }) => {
                     }}
                 >
                     <Tab value="thread" label={t('mobile.thread', { defaultValue: 'Thread' })} />
-                    <Tab value="canvas" label={t('mobile.canvas', { defaultValue: 'Canvas' })} disabled={!canvasTarget} />
+                    <Tab value="canvas" label={t('mobile.canvas', { defaultValue: 'Canvas' })} disabled={!canvasTarget && !dashboardOpen} />
                 </Tabs>
                 <Box sx={{
                     flex: 1, minHeight: 0, overflow: 'hidden',
                     p: phonePane === 'thread' ? 0.5 : 0,
                 }}>
-                    {phonePane === 'canvas' && canvasTarget ? canvasPanel : threadPanel}
+                    {phonePane === 'canvas' && (canvasTarget || dashboardOpen) ? canvasPanel : threadPanel}
                 </Box>
             </Box>
         </Box>
