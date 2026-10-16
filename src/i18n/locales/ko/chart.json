@@ -96,6 +96,7 @@
     "log": "로그",
     "insight": "인사이트",
     "openInVegaEditor": "Vega Editor에서 열기",
+    "downloadChartifact": "Chartifact 내보내기",
     "viewChartSpec": "차트 사양 보기",
     "editChart": "차트 편집",
     "chartInsight": "차트 인사이트",

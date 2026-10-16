@@ -51,6 +51,7 @@
     "log": "log",
     "insight": "insight",
     "openInVegaEditor": "Open in Vega Editor",
+    "downloadChartifact": "Export Chartifact",
     "viewChartSpec": "View chart spec",
     "editChart": "Edit chart",
     "chartInsight": "Chart insight",

@@ -96,6 +96,7 @@
     "log": "Protokoll",
     "insight": "Erkenntnis",
     "openInVegaEditor": "In Vega-Editor öffnen",
+    "downloadChartifact": "Chartifact exportieren",
     "viewChartSpec": "Diagramm-Spezifikation anzeigen",
     "editChart": "Diagramm bearbeiten",
     "chartInsight": "Diagrammerkenntnis",

@@ -96,6 +96,7 @@
     "log": "log",
     "insight": "wawasan",
     "openInVegaEditor": "Buka di Vega Editor",
+    "downloadChartifact": "Ekspor Chartifact",
     "viewChartSpec": "Lihat spesifikasi bagan",
     "editChart": "Ubah bagan",
     "chartInsight": "Wawasan bagan",

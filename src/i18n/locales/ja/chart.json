@@ -96,6 +96,7 @@
     "log": "ログ",
     "insight": "インサイト",
     "openInVegaEditor": "Vega Editorで開きます",
+    "downloadChartifact": "Chartifact をエクスポート",
     "viewChartSpec": "チャート仕様を表示",
     "editChart": "チャートを編集",
     "chartInsight": "チャートインサイト",

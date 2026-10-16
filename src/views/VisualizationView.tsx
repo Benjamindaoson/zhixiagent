@@ -51,6 +51,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { DataFormulatorState, dfActions, dfSelectors, explanationContent } from '../app/dfSlice';
 import { assembleVegaChart, extractFieldsFromEncodingMap, getUrls, prepVisTable, fetchWithIdentity } from '../app/utils';
 import { displayRowsCache } from '../app/displayRowsCache';
+import { buildChartifactDocument } from '../data/chartifact';
 import { buildEmbeddedDataForChart, applyVariantConfigUI } from '../app/restyle';
 import { apiRequest } from '../app/apiClient';
 import { buildDictTableFromWorkspace } from '../app/tableThunks';
@@ -1182,6 +1183,21 @@ export const ChartEditorFC: FC<{}> = function ChartEditorFC({}) {
         </Tooltip>
     );
 
+    const handleDownloadChartifact = () => {
+        if (!renderedSpec || !table.rows.length) return;
+        const content = buildChartifactDocument(
+            focusedChart.title || table.displayId || table.id, focusedChart, table, renderedSpec,
+        );
+        const url = URL.createObjectURL(new Blob([content], { type: 'text/markdown;charset=utf-8' }));
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `${focusedChart.id.replace(/[^a-zA-Z0-9_-]/g, '_')}.idoc.md`;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    };
+
     let chartMessage = "";
     if (focusedChart.chartType == "Table") {
         chartMessage = t('chart.msgTable');
@@ -1407,6 +1423,15 @@ export const ChartEditorFC: FC<{}> = function ChartEditorFC({}) {
                     {/* Footer: low-emphasis link to inspect the assembled
                         Vega-Lite spec in the external Vega editor. */}
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', px: 1.5, pb: 1 }}>
+                        <Button
+                            size="small"
+                            startIcon={<SaveAltIcon sx={{ fontSize: iconVar.sm }} />}
+                            disabled={!renderedSpec || !table.rows.length || focusedChart.chartType === 'Table' || focusedChart.chartType === 'Auto'}
+                            onClick={handleDownloadChartifact}
+                            sx={{ textTransform: 'none', fontSize: '0.65rem', color: 'text.secondary', minWidth: 'auto', py: 0 }}
+                        >
+                            {t('chart.downloadChartifact', { defaultValue: '导出 Chartifact' })}
+                        </Button>
                         <Button
                             size="small"
                             startIcon={<OpenInNewIcon sx={{ fontSize: iconVar.sm }} />}

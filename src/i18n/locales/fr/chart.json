@@ -96,6 +96,7 @@
     "log": "journal",
     "insight": "analyse",
     "openInVegaEditor": "Ouvrir dans Vega Editor",
+    "downloadChartifact": "Exporter Chartifact",
     "viewChartSpec": "Voir la spécification du graphique",
     "editChart": "Modifier le graphique",
     "chartInsight": "Analyse du graphique",
