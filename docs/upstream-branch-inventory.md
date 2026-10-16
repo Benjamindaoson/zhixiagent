@@ -2,21 +2,21 @@
 
 核对日期：2026-10-16；基准：upstream/dev @ 92edd620。ahead 表示该分支有多少提交尚未进入 dev，不代表这些提交适合直接合并。
 
-| 分支 | 提交 | dev 外提交 | 差异文件 | 分类 | 初步处理 |
+| 分支 | 提交 | dev 外提交 | 差异文件 | 分类 | 处理结果 |
 | --- | --- | ---: | ---: | --- | --- |
 | upstream/Chenglong-MS-patch-1 | 0be60223 | 0 | 0 | 历史或实验 | dev 已包含或为祖先 |
 | upstream/Chenglong-MS-patch-2 | 5f6e4117 | 0 | 0 | 历史或实验 | dev 已包含或为祖先 |
 | upstream/Chenglong-MS-patch-3 | 247fcf85 | 0 | 0 | 历史或实验 | dev 已包含或为祖先 |
 | upstream/Chenglong-MS-patch-4 | 363b1c41 | 0 | 0 | 历史或实验 | dev 已包含或为祖先 |
 | upstream/chartifact | 528db99a | 11 | 3 | 旧架构功能 | 导出能力已适配新版图表画布；旧线程组件未直接合并 |
-| upstream/clarity-data-anvil.azurewebsite.net | 734ee832 | 1 | 1 | 历史或实验 | 逐项评估 |
-| upstream/codespace-notes | fb16cf73 | 1 | 1 | 历史或实验 | 逐项评估 |
+| upstream/clarity-data-anvil.azurewebsite.net | 734ee832 | 1 | 1 | 历史或实验 | 仅新增外部遥测脚本，未合入 |
+| upstream/codespace-notes | fb16cf73 | 1 | 1 | 历史或实验 | 仅旧 Codespaces 说明，未合入 |
 | upstream/copilot/add-azure-sql-fabric-connector | fe484244 | 4 | 8 | 功能候选 | 已移植 Azure SQL/Fabric 连接器并修复密钥日志与 SQL 查询问题；目标库连通待验 |
 | upstream/copilot/add-pendidikan-chart-visualization | 78019639 | 2 | 4 | 功能候选 | URL 代理跟随未验证重定向，暂缓 |
 | upstream/copilot/add-refresh-data-option | f611d1fa | 5 | 5 | 功能候选 | dev 已有新版数据刷新流程，旧实现被取代 |
-| upstream/copilot/automate-vagalite-script-testing | f2e1bf95 | 2 | 3 | 修复或测试候选 | 在 dev 集成后移植与验证 |
+| upstream/copilot/automate-vagalite-script-testing | f2e1bf95 | 2 | 3 | 修复或测试候选 | 旧测试契约已由 dev 语义类型解析与图表约束覆盖 |
 | upstream/copilot/desktop-dev-candidate-20261008 | 50b36fbf | 4 | 7 | 桌面或构建 | 目标平台验证后决定 |
-| upstream/copilot/fix-20045b03-ae24-4926-9d07-8d79c5ac29cf | 2e4dc7c2 | 2 | 3 | 历史或实验 | 逐项评估 |
+| upstream/copilot/fix-20045b03-ae24-4926-9d07-8d79c5ac29cf | 2e4dc7c2 | 2 | 3 | 历史或实验 | 仅独立嵌入演示页，与当前主应用无关 |
 | upstream/copilot/fix-canvas-native-compile-error | 6bc67abe | 2 | 3 | 桌面或构建 | 目标平台验证后决定 |
 | upstream/copilot/fix-chart-insight-error-message | 3afb1c13 | 0 | 0 | 历史或实验 | dev 已包含或为祖先 |
 | upstream/copilot/fix-dependabot-and-code-scanning-issues | ed2cef82 | 0 | 0 | 历史或实验 | dev 已包含或为祖先 |
@@ -64,17 +64,17 @@
 | upstream/dependabot/uv/requests-2.33.0 | 53096416 | 1 | 1 | 依赖维护 | 兼容性与安全审查后决定 |
 | upstream/dependabot/uv/soupsieve-2.9 | 0f396e32 | 1 | 1 | 依赖维护 | 兼容性与安全审查后决定 |
 | upstream/dependabot/uv/thrift-0.24.0 | a1e659e7 | 1 | 1 | 依赖维护 | 兼容性与安全审查后决定 |
-| upstream/dev | 92edd620 | 0 | 0 | 开发主线 | 已合并到隔离分支并持续验证 |
-| upstream/docs/dev-guides-cleanup | ab5ad300 | 1 | 12 | 文档 | 与实际代码逐条核对 |
+| upstream/dev | 92edd620 | 0 | 0 | 开发主线 | 已集成并推送至知析 AI `main`，本地全量测试与浏览器运行通过 |
+| upstream/docs/dev-guides-cleanup | ab5ad300 | 1 | 12 | 文档 | 上游开发说明改写；本仓库保留针对知析 AI 的实测文档 |
 | upstream/feature/i18n-react-i18next | ed706bcf | 0 | 0 | 历史或实验 | dev 已包含或为祖先 |
-| upstream/feature/plugin-architecture | fa5b59de | 1 | 0 | 功能历史 | 树差异为 0，核对合并记录 |
+| upstream/feature/plugin-architecture | fa5b59de | 1 | 0 | 功能历史 | 与 dev 树差异为 0，无需重复移植 |
 | upstream/main | 5477f0e2 | 0 | 0 | 发布基线 | 0.8b1 已在知析 AI |
 | upstream/main-0.6 | eebe31a7 | 0 | 0 | 历史或实验 | dev 已包含或为祖先 |
-| upstream/main-0.7 | e55dca13 | 2 | 3 | 历史或实验 | 逐项评估 |
-| upstream/mcp | af95c28a | 4 | 5 | 旧架构功能候选 | 旧工作区和数据访问契约，需另建新版 MCP 适配层；未直接合并 |
-| upstream/mimetype-js | 1e2a8107 | 1 | 1 | 历史或实验 | 逐项评估 |
+| upstream/main-0.7 | e55dca13 | 2 | 3 | 历史或实验 | 主要把默认端口改回 5000；保留当前已验证的 5567 |
+| upstream/mcp | af95c28a | 4 | 5 | 旧架构功能候选 | 引用 dev 已删除的 `DataRecAgent`、`ExplorationAgent`，且 `Workspace(session_id)` 不符合新版身份参数；需另建适配层 |
+| upstream/mimetype-js | 1e2a8107 | 1 | 1 | 历史或实验 | 现有构建产物已返回 JavaScript MIME，无需覆盖 |
 | upstream/sso-test | c4e46049 | 0 | 0 | 历史或实验 | dev 已包含或为祖先 |
-| upstream/test-launch-debugger | 1ed02b27 | 1 | 1 | 历史或实验 | 逐项评估 |
+| upstream/test-launch-debugger | 1ed02b27 | 1 | 1 | 历史或实验 | 仅开发容器启动调试器配置，未合入 |
 
 说明：仅在代码、测试和本地运行验证通过后，处理状态才可从“候选”改为“已集成”。历史、实验和依赖分支需要逐条说明取舍；不把分支名或提交数当成功能验收。
 
