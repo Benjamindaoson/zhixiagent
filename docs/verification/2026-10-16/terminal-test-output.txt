@@ -1,0 +1,385 @@
+......FFF.FFFF....F.....F......FFFF......F.FFFFFFFFF.........F.F.F.....F [ 70%]
+......FFFFFFFFFFFFFFFF.F......                                           [100%]
+================================== FAILURES ===================================
+_____ test_terminal_pause_retains_partial_output_and_stops_process[False] _____
+tests\backend\agents\test_terminal_skill.py:104: in test_terminal_pause_retains_partial_output_and_stops_process
+    assert next(events)["type"] == "terminal_running"
+           ^^^^^^^^^^^^
+py-src\data_formulator\analyst\skills\terminal\skill.py:224: in run_command
+    yield from _run_command(
+py-src\data_formulator\analyst\skills\terminal\skill.py:259: in _run_command
+    argv = confined_command(proposal["argv"], scratch_dir, write_paths=policy["allowWrite"], runtime_dir=runtime_dir,
+py-src\data_formulator\analyst\skills\terminal\skill.py:219: in confined_command
+    raise OSError("Terminal write confinement is unavailable on this platform; command was not run.")
+E   OSError: Terminal write confinement is unavailable on this platform; command was not run.
+_____ test_terminal_pause_retains_partial_output_and_stops_process[True] ______
+tests\backend\agents\test_terminal_skill.py:104: in test_terminal_pause_retains_partial_output_and_stops_process
+    assert next(events)["type"] == "terminal_running"
+           ^^^^^^^^^^^^
+py-src\data_formulator\analyst\skills\terminal\skill.py:224: in run_command
+    yield from _run_command(
+py-src\data_formulator\analyst\skills\terminal\skill.py:259: in _run_command
+    argv = confined_command(proposal["argv"], scratch_dir, write_paths=policy["allowWrite"], runtime_dir=runtime_dir,
+py-src\data_formulator\analyst\skills\terminal\skill.py:219: in confined_command
+    raise OSError("Terminal write confinement is unavailable on this platform; command was not run.")
+E   OSError: Terminal write confinement is unavailable on this platform; command was not run.
+_ test_terminal_acquired_data_can_be_analyzed_and_published_without_connector _
+tests\backend\agents\test_terminal_skill.py:133: in test_terminal_acquired_data_can_be_analyzed_and_published_without_connector
+    result = list(terminal.run_command({
+py-src\data_formulator\analyst\skills\terminal\skill.py:224: in run_command
+    yield from _run_command(
+py-src\data_formulator\analyst\skills\terminal\skill.py:259: in _run_command
+    argv = confined_command(proposal["argv"], scratch_dir, write_paths=policy["allowWrite"], runtime_dir=runtime_dir,
+py-src\data_formulator\analyst\skills\terminal\skill.py:219: in confined_command
+    raise OSError("Terminal write confinement is unavailable on this platform; command was not run.")
+E   OSError: Terminal write confinement is unavailable on this platform; command was not run.
+_______ test_terminal_action_obeys_policy_without_client_override[off] ________
+tests\backend\agents\test_terminal_skill.py:220: in test_terminal_action_obeys_policy_without_client_override
+    assert "disabled" in observation
+E   AssertionError: assert 'disabled' in 'Terminal is available only in single-user local mode on macOS or Linux.'
+_______ test_terminal_action_obeys_policy_without_client_override[auto] _______
+tests\backend\agents\test_terminal_skill.py:222: in test_terminal_action_obeys_policy_without_client_override
+    run.assert_called_once()
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\unittest\mock.py:918: in assert_called_once
+    raise AssertionError(msg)
+E   AssertionError: Expected 'run_command' to have been called once. Called 0 times.
+____________ test_unsandboxed_action_always_requires_approval[ask] ____________
+tests\backend\agents\test_terminal_skill.py:249: in test_unsandboxed_action_always_requires_approval
+    proposal = events[0]["terminal_request"]
+               ^^^^^^^^^
+E   IndexError: list index out of range
+___________ test_unsandboxed_action_always_requires_approval[auto] ____________
+tests\backend\agents\test_terminal_skill.py:249: in test_unsandboxed_action_always_requires_approval
+    proposal = events[0]["terminal_request"]
+               ^^^^^^^^^
+E   IndexError: list index out of range
+_____________ test_unsandboxed_runner_requires_approval[approve] ______________
+tests\backend\agents\test_terminal_skill.py:266: in test_unsandboxed_runner_requires_approval
+    assert list(terminal.run_command(proposal, scratch_dir=scratch))[-1]["result"]["exit_code"] == 0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+py-src\data_formulator\analyst\skills\terminal\skill.py:224: in run_command
+    yield from _run_command(
+py-src\data_formulator\analyst\skills\terminal\skill.py:294: in _run_command
+    os.set_blocking(process.stdout.fileno(), False)
+    ^^^^^^^^^^^^^^^
+E   AttributeError: module 'os' has no attribute 'set_blocking'
+____________ test_default_state_write_executes_immediately_in_auto ____________
+tests\backend\agents\test_terminal_skill.py:292: in test_default_state_write_executes_immediately_in_auto
+    state.mkdir()
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1116: in mkdir
+    os.mkdir(self, mode)
+E   FileExistsError: [WinError 183] 当文件已存在时，无法创建该文件。: 'C:\\Users\\Admin（无密码）\\.azure'
+___________ test_analyst_auto_terminal_cancellation_closes_command ____________
+tests\backend\agents\test_terminal_skill.py:342: in test_analyst_auto_terminal_cancellation_closes_command
+    assert next(events)["type"] == "terminal_started"
+           ^^^^^^^^^^^^
+E   StopIteration: Terminal is available only in single-user local mode on macOS or Linux.
+________ test_terminal_confines_writes_and_child_processes_to_scratch _________
+tests\backend\agents\test_terminal_skill.py:369: in test_terminal_confines_writes_and_child_processes_to_scratch
+    result = list(terminal.run_command({"argv": [sys.executable, "-c", code],
+py-src\data_formulator\analyst\skills\terminal\skill.py:224: in run_command
+    yield from _run_command(
+py-src\data_formulator\analyst\skills\terminal\skill.py:259: in _run_command
+    argv = confined_command(proposal["argv"], scratch_dir, write_paths=policy["allowWrite"], runtime_dir=runtime_dir,
+py-src\data_formulator\analyst\skills\terminal\skill.py:219: in confined_command
+    raise OSError("Terminal write confinement is unavailable on this platform; command was not run.")
+E   OSError: Terminal write confinement is unavailable on this platform; command was not run.
+_ test_terminal_policy_allows_atomic_updates_but_protects_other_home_files[False] _
+tests\backend\agents\test_terminal_skill.py:382: in test_terminal_policy_allows_atomic_updates_but_protects_other_home_files
+    state_directory.mkdir()
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1116: in mkdir
+    os.mkdir(self, mode)
+E   FileExistsError: [WinError 183] 当文件已存在时，无法创建该文件。: 'C:\\Users\\Admin（无密码）\\client-state'
+_ test_terminal_policy_allows_atomic_updates_but_protects_other_home_files[True] _
+tests\backend\agents\test_terminal_skill.py:382: in test_terminal_policy_allows_atomic_updates_but_protects_other_home_files
+    state_directory.mkdir()
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1116: in mkdir
+    os.mkdir(self, mode)
+E   FileExistsError: [WinError 183] 当文件已存在时，无法创建该文件。: 'C:\\Users\\Admin（无密码）\\client-state'
+____________ test_terminal_runtime_state_is_private_and_disposable ____________
+tests\backend\agents\test_terminal_skill.py:454: in test_terminal_runtime_state_is_private_and_disposable
+    result = list(terminal.run_command({"argv": [sys.executable, "-c", code], "cwd": str(tmp_path),
+py-src\data_formulator\analyst\skills\terminal\skill.py:224: in run_command
+    yield from _run_command(
+py-src\data_formulator\analyst\skills\terminal\skill.py:259: in _run_command
+    argv = confined_command(proposal["argv"], scratch_dir, write_paths=policy["allowWrite"], runtime_dir=runtime_dir,
+py-src\data_formulator\analyst\skills\terminal\skill.py:219: in confined_command
+    raise OSError("Terminal write confinement is unavailable on this platform; command was not run.")
+E   OSError: Terminal write confinement is unavailable on this platform; command was not run.
+__ test_terminal_default_policy_allows_cli_state_without_approval[~/.azure] ___
+tests\backend\agents\test_terminal_skill.py:482: in test_terminal_default_policy_allows_cli_state_without_approval
+    state.mkdir(parents=True)
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1116: in mkdir
+    os.mkdir(self, mode)
+E   FileExistsError: [WinError 183] 当文件已存在时，无法创建该文件。: 'C:\\Users\\Admin（无密码）\\.azure'
+_ test_terminal_default_policy_allows_cli_state_without_approval[~/.config/gcloud] _
+tests\backend\agents\test_terminal_skill.py:482: in test_terminal_default_policy_allows_cli_state_without_approval
+    state.mkdir(parents=True)
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1116: in mkdir
+    os.mkdir(self, mode)
+E   FileExistsError: [WinError 183] 当文件已存在时，无法创建该文件。: 'C:\\Users\\Admin（无密码）\\.config\\gcloud'
+_ test_terminal_default_policy_allows_cli_state_without_approval[~/.aws/cli/cache] _
+tests\backend\agents\test_terminal_skill.py:482: in test_terminal_default_policy_allows_cli_state_without_approval
+    state.mkdir(parents=True)
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1116: in mkdir
+    os.mkdir(self, mode)
+E   FileExistsError: [WinError 183] 当文件已存在时，无法创建该文件。: 'C:\\Users\\Admin（无密码）\\.aws\\cli\\cache'
+_ test_terminal_default_policy_allows_cli_state_without_approval[~/.aws/sso/cache] _
+tests\backend\agents\test_terminal_skill.py:482: in test_terminal_default_policy_allows_cli_state_without_approval
+    state.mkdir(parents=True)
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1116: in mkdir
+    os.mkdir(self, mode)
+E   FileExistsError: [WinError 183] 当文件已存在时，无法创建该文件。: 'C:\\Users\\Admin（无密码）\\.aws\\sso\\cache'
+_ test_terminal_default_policy_allows_cli_state_without_approval[~/.aws/login/cache] _
+tests\backend\agents\test_terminal_skill.py:482: in test_terminal_default_policy_allows_cli_state_without_approval
+    state.mkdir(parents=True)
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1116: in mkdir
+    os.mkdir(self, mode)
+E   FileExistsError: [WinError 183] 当文件已存在时，无法创建该文件。: 'C:\\Users\\Admin（无密码）\\.aws\\login\\cache'
+_ test_terminal_default_policy_allows_cli_state_without_approval[~/.kube/cache] _
+tests\backend\agents\test_terminal_skill.py:482: in test_terminal_default_policy_allows_cli_state_without_approval
+    state.mkdir(parents=True)
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1116: in mkdir
+    os.mkdir(self, mode)
+E   FileExistsError: [WinError 183] 当文件已存在时，无法创建该文件。: 'C:\\Users\\Admin（无密码）\\.kube\\cache'
+_ test_terminal_default_policy_allows_cli_state_without_approval[~/.kube/http-cache] _
+tests\backend\agents\test_terminal_skill.py:482: in test_terminal_default_policy_allows_cli_state_without_approval
+    state.mkdir(parents=True)
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1116: in mkdir
+    os.mkdir(self, mode)
+E   FileExistsError: [WinError 183] 当文件已存在时，无法创建该文件。: 'C:\\Users\\Admin（无密码）\\.kube\\http-cache'
+______ test_terminal_configured_policy_replaces_defaults_and_is_reusable ______
+tests\backend\agents\test_terminal_skill.py:496: in test_terminal_configured_policy_replaces_defaults_and_is_reusable
+    custom.mkdir()
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1116: in mkdir
+    os.mkdir(self, mode)
+E   FileExistsError: [WinError 183] 当文件已存在时，无法创建该文件。: 'C:\\Users\\Admin（无密码）\\custom-state'
+_ test_terminal_default_policy_rejects_redirects_and_creates_only_cache_children _
+tests\backend\agents\test_terminal_skill.py:514: in test_terminal_default_policy_rejects_redirects_and_creates_only_cache_children
+    (home / ".azure").symlink_to(tmp_path, target_is_directory=True)
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1198: in symlink_to
+    os.symlink(target, self, target_is_directory)
+E   FileExistsError: [WinError 183] 当文件已存在时，无法创建该文件。: 'C:\\Users\\Admin（无密码）\\AppData\\Local\\Temp\\pytest-of-Admin（无密码）\\pytest-21\\test_terminal_default_policy_r0' -> 'C:\\Users\\Admin（无密码）\\.azure'
+_________________ test_terminal_hides_df_secrets_and_api_port _________________
+tests\backend\agents\test_terminal_skill.py:575: in test_terminal_hides_df_secrets_and_api_port
+    assert f'(deny file-read* file-write* (literal "{secret}"))' in profile
+E   assert '(deny file-read* file-write* (literal "C:\\Users\\Admin（无密码）\\AppData\\Local\\Temp\\pytest-of-Admin（无密码）\\pytest-21\\test_terminal_hides_df_secrets0\\.vault_key"))' in '(version 1)(deny default)(allow process-exec process-fork)(allow signal (target children))(allow file-read* sysctl-re...9\\\\pytest-21\\\\test_terminal_hides_df_secrets0\\\\.vault_key"))(deny network-outbound (remote ip "localhost:5567"))'
+________________________ test_vault_key_is_owner_only _________________________
+tests\backend\agents\test_terminal_skill.py:598: in test_vault_key_is_owner_only
+    assert created and (tmp_path / ".vault_key").stat().st_mode & 0o777 == 0o600
+E   AssertionError: assert ('Ca781uHuaNyE1JvJ4WbaUYHEC-uKq7ACIPPbYqZcFTU=' and (33206 & 511) == 384)
+E    +  where 33206 = os.stat_result(st_mode=33206, st_ino=3659174699132602, st_dev=2216513404, st_nlink=1, st_uid=0, st_gid=0, st_size=46, st_atime=1792154154, st_mtime=1792154154, st_ctime=1792154154).st_mode
+E    +    where os.stat_result(st_mode=33206, st_ino=3659174699132602, st_dev=2216513404, st_nlink=1, st_uid=0, st_gid=0, st_size=46, st_atime=1792154154, st_mtime=1792154154, st_ctime=1792154154) = stat()
+E    +      where stat = (WindowsPath('C:/Users/Admin（无密码）/AppData/Local/Temp/pytest-of-Admin（无密码）/pytest-21/test_vault_key_is_owner_only0') / '.vault_key').stat
+_______________ test_terminal_runner_limits_output_and_timeout ________________
+tests\backend\agents\test_terminal_skill.py:622: in test_terminal_runner_limits_output_and_timeout
+    result = list(terminal.run_command({"argv": [sys.executable, "-c", "print('x' * 40000)"],
+py-src\data_formulator\analyst\skills\terminal\skill.py:224: in run_command
+    yield from _run_command(
+py-src\data_formulator\analyst\skills\terminal\skill.py:259: in _run_command
+    argv = confined_command(proposal["argv"], scratch_dir, write_paths=policy["allowWrite"], runtime_dir=runtime_dir,
+py-src\data_formulator\analyst\skills\terminal\skill.py:219: in confined_command
+    raise OSError("Terminal write confinement is unavailable on this platform; command was not run.")
+E   OSError: Terminal write confinement is unavailable on this platform; command was not run.
+_ test_terminal_requires_local_same_origin[True-http://localhost-http://localhost-True] _
+tests\backend\agents\test_terminal_skill.py:655: in test_terminal_requires_local_same_origin
+    terminal.require_local_terminal_request()
+py-src\data_formulator\analyst\skills\terminal\skill.py:68: in require_local_terminal_request
+    raise ValueError("Terminal is available only in single-user local mode on macOS or Linux.")
+E   ValueError: Terminal is available only in single-user local mode on macOS or Linux.
+______________ test_closing_terminal_stream_kills_process_group _______________
+tests\backend\agents\test_terminal_skill.py:682: in test_closing_terminal_stream_kills_process_group
+    assert next(execution)["type"] == "terminal_running"
+           ^^^^^^^^^^^^^^^
+py-src\data_formulator\analyst\skills\terminal\skill.py:224: in run_command
+    yield from _run_command(
+py-src\data_formulator\analyst\skills\terminal\skill.py:259: in _run_command
+    argv = confined_command(proposal["argv"], scratch_dir, write_paths=policy["allowWrite"], runtime_dir=runtime_dir,
+py-src\data_formulator\analyst\skills\terminal\skill.py:219: in confined_command
+    raise OSError("Terminal write confinement is unavailable on this platform; command was not run.")
+E   OSError: Terminal write confinement is unavailable on this platform; command was not run.
+_ test_terminal_reports_access_denial_without_guessing_its_source[1-Operation not permitted: ~/.azure/msal_token_cache.json.lockfile-True] _
+tests\backend\agents\test_terminal_skill.py:698: in test_terminal_reports_access_denial_without_guessing_its_source
+    result = list(terminal.run_command({
+py-src\data_formulator\analyst\skills\terminal\skill.py:224: in run_command
+    yield from _run_command(
+py-src\data_formulator\analyst\skills\terminal\skill.py:259: in _run_command
+    argv = confined_command(proposal["argv"], scratch_dir, write_paths=policy["allowWrite"], runtime_dir=runtime_dir,
+py-src\data_formulator\analyst\skills\terminal\skill.py:219: in confined_command
+    raise OSError("Terminal write confinement is unavailable on this platform; command was not run.")
+E   OSError: Terminal write confinement is unavailable on this platform; command was not run.
+_ test_terminal_reports_access_denial_without_guessing_its_source[1-Permission denied: ~/.azure/msal_token_cache.bin-True] _
+tests\backend\agents\test_terminal_skill.py:698: in test_terminal_reports_access_denial_without_guessing_its_source
+    result = list(terminal.run_command({
+py-src\data_formulator\analyst\skills\terminal\skill.py:224: in run_command
+    yield from _run_command(
+py-src\data_formulator\analyst\skills\terminal\skill.py:259: in _run_command
+    argv = confined_command(proposal["argv"], scratch_dir, write_paths=policy["allowWrite"], runtime_dir=runtime_dir,
+py-src\data_formulator\analyst\skills\terminal\skill.py:219: in confined_command
+    raise OSError("Terminal write confinement is unavailable on this platform; command was not run.")
+E   OSError: Terminal write confinement is unavailable on this platform; command was not run.
+_ test_terminal_reports_access_denial_without_guessing_its_source[1-Permission denied: report.csv-True] _
+tests\backend\agents\test_terminal_skill.py:698: in test_terminal_reports_access_denial_without_guessing_its_source
+    result = list(terminal.run_command({
+py-src\data_formulator\analyst\skills\terminal\skill.py:224: in run_command
+    yield from _run_command(
+py-src\data_formulator\analyst\skills\terminal\skill.py:259: in _run_command
+    argv = confined_command(proposal["argv"], scratch_dir, write_paths=policy["allowWrite"], runtime_dir=runtime_dir,
+py-src\data_formulator\analyst\skills\terminal\skill.py:219: in confined_command
+    raise OSError("Terminal write confinement is unavailable on this platform; command was not run.")
+E   OSError: Terminal write confinement is unavailable on this platform; command was not run.
+_ test_terminal_reports_access_denial_without_guessing_its_source[1-Read-only file system: client-state-True] _
+tests\backend\agents\test_terminal_skill.py:698: in test_terminal_reports_access_denial_without_guessing_its_source
+    result = list(terminal.run_command({
+py-src\data_formulator\analyst\skills\terminal\skill.py:224: in run_command
+    yield from _run_command(
+py-src\data_formulator\analyst\skills\terminal\skill.py:259: in _run_command
+    argv = confined_command(proposal["argv"], scratch_dir, write_paths=policy["allowWrite"], runtime_dir=runtime_dir,
+py-src\data_formulator\analyst\skills\terminal\skill.py:219: in confined_command
+    raise OSError("Terminal write confinement is unavailable on this platform; command was not run.")
+E   OSError: Terminal write confinement is unavailable on this platform; command was not run.
+_ test_terminal_reports_access_denial_without_guessing_its_source[1-Authentication required: sign in to your account-False] _
+tests\backend\agents\test_terminal_skill.py:698: in test_terminal_reports_access_denial_without_guessing_its_source
+    result = list(terminal.run_command({
+py-src\data_formulator\analyst\skills\terminal\skill.py:224: in run_command
+    yield from _run_command(
+py-src\data_formulator\analyst\skills\terminal\skill.py:259: in _run_command
+    argv = confined_command(proposal["argv"], scratch_dir, write_paths=policy["allowWrite"], runtime_dir=runtime_dir,
+py-src\data_formulator\analyst\skills\terminal\skill.py:219: in confined_command
+    raise OSError("Terminal write confinement is unavailable on this platform; command was not run.")
+E   OSError: Terminal write confinement is unavailable on this platform; command was not run.
+_ test_terminal_reports_access_denial_without_guessing_its_source[0-Operation not permitted: ~/.azure/msal_token_cache.json.lockfile-False] _
+tests\backend\agents\test_terminal_skill.py:698: in test_terminal_reports_access_denial_without_guessing_its_source
+    result = list(terminal.run_command({
+py-src\data_formulator\analyst\skills\terminal\skill.py:224: in run_command
+    yield from _run_command(
+py-src\data_formulator\analyst\skills\terminal\skill.py:259: in _run_command
+    argv = confined_command(proposal["argv"], scratch_dir, write_paths=policy["allowWrite"], runtime_dir=runtime_dir,
+py-src\data_formulator\analyst\skills\terminal\skill.py:219: in confined_command
+    raise OSError("Terminal write confinement is unavailable on this platform; command was not run.")
+E   OSError: Terminal write confinement is unavailable on this platform; command was not run.
+________________ test_terminal_does_not_inherit_server_secrets ________________
+tests\backend\agents\test_terminal_skill.py:716: in test_terminal_does_not_inherit_server_secrets
+    result = list(terminal.run_command({
+py-src\data_formulator\analyst\skills\terminal\skill.py:224: in run_command
+    yield from _run_command(
+py-src\data_formulator\analyst\skills\terminal\skill.py:259: in _run_command
+    argv = confined_command(proposal["argv"], scratch_dir, write_paths=policy["allowWrite"], runtime_dir=runtime_dir,
+py-src\data_formulator\analyst\skills\terminal\skill.py:219: in confined_command
+    raise OSError("Terminal write confinement is unavailable on this platform; command was not run.")
+E   OSError: Terminal write confinement is unavailable on this platform; command was not run.
+_ test_terminal_route_executes_stored_command_and_resumes_analyst[False-ask-<redacted>] _
+tests\backend\agents\test_terminal_skill.py:761: in test_terminal_route_executes_stored_command_and_resumes_analyst
+    outcome = next(event for event in events if event["type"] == "terminal_result")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\backend\agents\test_terminal_skill.py:761: in <genexpr>
+    outcome = next(event for event in events if event["type"] == "terminal_result")
+                                                ^^^^^^^^^^^^^
+E   KeyError: 'type'
+_ test_terminal_route_executes_stored_command_and_resumes_analyst[False-ask-<redacted>] _
+tests\backend\agents\test_terminal_skill.py:761: in test_terminal_route_executes_stored_command_and_resumes_analyst
+    outcome = next(event for event in events if event["type"] == "terminal_result")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\backend\agents\test_terminal_skill.py:761: in <genexpr>
+    outcome = next(event for event in events if event["type"] == "terminal_result")
+                                                ^^^^^^^^^^^^^
+E   KeyError: 'type'
+_ test_terminal_route_executes_stored_command_and_resumes_analyst[False-auto-approve] _
+tests\backend\agents\test_terminal_skill.py:761: in test_terminal_route_executes_stored_command_and_resumes_analyst
+    outcome = next(event for event in events if event["type"] == "terminal_result")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\backend\agents\test_terminal_skill.py:761: in <genexpr>
+    outcome = next(event for event in events if event["type"] == "terminal_result")
+                                                ^^^^^^^^^^^^^
+E   KeyError: 'type'
+_ test_terminal_route_executes_stored_command_and_resumes_analyst[False-auto-reject] _
+tests\backend\agents\test_terminal_skill.py:761: in test_terminal_route_executes_stored_command_and_resumes_analyst
+    outcome = next(event for event in events if event["type"] == "terminal_result")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\backend\agents\test_terminal_skill.py:761: in <genexpr>
+    outcome = next(event for event in events if event["type"] == "terminal_result")
+                                                ^^^^^^^^^^^^^
+E   KeyError: 'type'
+_ test_terminal_route_executes_stored_command_and_resumes_analyst[True-ask-<redacted>] _
+tests\backend\agents\test_terminal_skill.py:761: in test_terminal_route_executes_stored_command_and_resumes_analyst
+    outcome = next(event for event in events if event["type"] == "terminal_result")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\backend\agents\test_terminal_skill.py:761: in <genexpr>
+    outcome = next(event for event in events if event["type"] == "terminal_result")
+                                                ^^^^^^^^^^^^^
+E   KeyError: 'type'
+_ test_terminal_route_executes_stored_command_and_resumes_analyst[True-ask-<redacted>] _
+tests\backend\agents\test_terminal_skill.py:761: in test_terminal_route_executes_stored_command_and_resumes_analyst
+    outcome = next(event for event in events if event["type"] == "terminal_result")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\backend\agents\test_terminal_skill.py:761: in <genexpr>
+    outcome = next(event for event in events if event["type"] == "terminal_result")
+                                                ^^^^^^^^^^^^^
+E   KeyError: 'type'
+_ test_terminal_route_executes_stored_command_and_resumes_analyst[True-auto-approve] _
+tests\backend\agents\test_terminal_skill.py:761: in test_terminal_route_executes_stored_command_and_resumes_analyst
+    outcome = next(event for event in events if event["type"] == "terminal_result")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\backend\agents\test_terminal_skill.py:761: in <genexpr>
+    outcome = next(event for event in events if event["type"] == "terminal_result")
+                                                ^^^^^^^^^^^^^
+E   KeyError: 'type'
+_ test_terminal_route_executes_stored_command_and_resumes_analyst[True-auto-reject] _
+tests\backend\agents\test_terminal_skill.py:761: in test_terminal_route_executes_stored_command_and_resumes_analyst
+    outcome = next(event for event in events if event["type"] == "terminal_result")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\backend\agents\test_terminal_skill.py:761: in <genexpr>
+    outcome = next(event for event in events if event["type"] == "terminal_result")
+                                                ^^^^^^^^^^^^^
+E   KeyError: 'type'
+_______________ test_terminal_skill_proposes_without_execution ________________
+tests\backend\agents\test_terminal_skill.py:803: in test_terminal_skill_proposes_without_execution
+    assert events[0]["type"] == "interact"
+           ^^^^^^^^^
+E   IndexError: list index out of range
+=========================== short test summary info ===========================
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_pause_retains_partial_output_and_stops_process[False]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_pause_retains_partial_output_and_stops_process[True]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_acquired_data_can_be_analyzed_and_published_without_connector
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_action_obeys_policy_without_client_override[off]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_action_obeys_policy_without_client_override[auto]
+FAILED tests/backend/agents/test_terminal_skill.py::test_unsandboxed_action_always_requires_approval[ask]
+FAILED tests/backend/agents/test_terminal_skill.py::test_unsandboxed_action_always_requires_approval[auto]
+FAILED tests/backend/agents/test_terminal_skill.py::test_unsandboxed_runner_requires_approval[approve]
+FAILED tests/backend/agents/test_terminal_skill.py::test_default_state_write_executes_immediately_in_auto
+FAILED tests/backend/agents/test_terminal_skill.py::test_analyst_auto_terminal_cancellation_closes_command
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_confines_writes_and_child_processes_to_scratch
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_policy_allows_atomic_updates_but_protects_other_home_files[False]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_policy_allows_atomic_updates_but_protects_other_home_files[True]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_runtime_state_is_private_and_disposable
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_default_policy_allows_cli_state_without_approval[~/.azure]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_default_policy_allows_cli_state_without_approval[~/.config/gcloud]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_default_policy_allows_cli_state_without_approval[~/.aws/cli/cache]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_default_policy_allows_cli_state_without_approval[~/.aws/sso/cache]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_default_policy_allows_cli_state_without_approval[~/.aws/login/cache]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_default_policy_allows_cli_state_without_approval[~/.kube/cache]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_default_policy_allows_cli_state_without_approval[~/.kube/http-cache]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_configured_policy_replaces_defaults_and_is_reusable
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_default_policy_rejects_redirects_and_creates_only_cache_children
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_hides_df_secrets_and_api_port
+FAILED tests/backend/agents/test_terminal_skill.py::test_vault_key_is_owner_only
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_runner_limits_output_and_timeout
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_requires_local_same_origin[True-http://localhost-http://localhost-True]
+FAILED tests/backend/agents/test_terminal_skill.py::test_closing_terminal_stream_kills_process_group
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_reports_access_denial_without_guessing_its_source[1-Operation not permitted: ~/.azure/msal_token_cache.json.lockfile-True]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_reports_access_denial_without_guessing_its_source[1-Permission denied: ~/.azure/msal_token_cache.bin-True]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_reports_access_denial_without_guessing_its_source[1-Permission denied: report.csv-True]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_reports_access_denial_without_guessing_its_source[1-Read-only file system: client-state-True]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_reports_access_denial_without_guessing_its_source[1-Authentication required: sign in to your account-False]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_reports_access_denial_without_guessing_its_source[0-Operation not permitted: ~/.azure/msal_token_cache.json.lockfile-False]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_does_not_inherit_server_secrets
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_route_executes_stored_command_and_resumes_analyst[False-ask-<redacted>]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_route_executes_stored_command_and_resumes_analyst[False-ask-<redacted>]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_route_executes_stored_command_and_resumes_analyst[False-auto-approve]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_route_executes_stored_command_and_resumes_analyst[False-auto-reject]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_route_executes_stored_command_and_resumes_analyst[True-ask-<redacted>]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_route_executes_stored_command_and_resumes_analyst[True-ask-<redacted>]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_route_executes_stored_command_and_resumes_analyst[True-auto-approve]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_route_executes_stored_command_and_resumes_analyst[True-auto-reject]
+FAILED tests/backend/agents/test_terminal_skill.py::test_terminal_skill_proposes_without_execution
+44 failed, 58 passed in 12.21s

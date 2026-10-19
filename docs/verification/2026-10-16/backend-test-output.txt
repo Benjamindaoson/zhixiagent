@@ -1,0 +1,189 @@
+..........................s............................................. [  2%]
+..............................................s...s................s.... [  4%]
+........................................................................ [  7%]
+........................................................................ [  9%]
+........................................................................ [ 12%]
+........................................................................ [ 14%]
+........................................................................ [ 17%]
+............................................ss.......................... [ 19%]
+..............sss.sssssssss.....s......ssss......s.sssssssss.........s.s [ 22%]
+.s.....ssssss.ssssssssssssssss.s............s........................... [ 24%]
+........................................................................ [ 27%]
+...................s.................................sss............ssss [ 29%]
+ssssssss...sssssssss.................................................... [ 32%]
+..ss.s.ss............................................................... [ 34%]
+........................................................................ [ 36%]
+........................................................................ [ 39%]
+........................................................................ [ 41%]
+........................................................................ [ 44%]
+........................................................................ [ 46%]
+....ss.......................................X.......................... [ 49%]
+..................s..................................................... [ 51%]
+........................................................................ [ 54%]
+........................................................................ [ 56%]
+........................................................................ [ 59%]
+........................................................................ [ 61%]
+............................................................s........... [ 64%]
+........................................................................ [ 66%]
+.......................FFFFF............................................ [ 69%]
+..................................sssss...s............................. [ 71%]
+........................................................................ [ 73%]
+........................................................................ [ 76%]
+........................................................................ [ 78%]
+........................................................................ [ 81%]
+......................................................F................. [ 83%]
+........................................................................ [ 86%]
+.............................FFF......................F.....F..........s [ 88%]
+s....................................................................... [ 91%]
+..........s.......................................ssssssssssssssssssssss [ 93%]
+sssssssssssssssssssssssssssssssss....................................... [ 96%]
+.............................................ssssss..................... [ 98%]
+..................................FF.....                                [100%]
+================================== FAILURES ===================================
+_ test_native_text_reader_compatibility[csv-\ufeffcode,text,score\r\n001,"line one\nline two, ""quoted""",2\r\n002,,\r\n-expected0] _
+tests\backend\data_loader\test_probe.py:40: in test_native_text_reader_compatibility
+    path.write_text(content, encoding="utf-8")
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1078: in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1044: in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: [Errno 22] Invalid argument: 'C:\\Users\\Admin（无密码）\\AppData\\Local\\Temp\\pytest-of-Admin（无密码）\\pytest-24\\test_native_text_reader_compat0\\[literal]*.csv'
+_ test_native_text_reader_compatibility[tsv-code\tvalue\n001\tfirst\n002\tsecond\n-expected1] _
+tests\backend\data_loader\test_probe.py:40: in test_native_text_reader_compatibility
+    path.write_text(content, encoding="utf-8")
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1078: in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1044: in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: [Errno 22] Invalid argument: 'C:\\Users\\Admin（无密码）\\AppData\\Local\\Temp\\pytest-of-Admin（无密码）\\pytest-24\\test_native_text_reader_compat1\\[literal]*.tsv'
+_ test_native_text_reader_compatibility[json-[{"key":"first"},{"key":"second","nested":{"value":2}}]-expected2] _
+tests\backend\data_loader\test_probe.py:40: in test_native_text_reader_compatibility
+    path.write_text(content, encoding="utf-8")
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1078: in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1044: in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: [Errno 22] Invalid argument: 'C:\\Users\\Admin（无密码）\\AppData\\Local\\Temp\\pytest-of-Admin（无密码）\\pytest-24\\test_native_text_reader_compat2\\[literal]*.json'
+_ test_native_text_reader_compatibility[json-\ufeff {\n "key": "single",\n "value": null\n}-expected3] _
+tests\backend\data_loader\test_probe.py:40: in test_native_text_reader_compatibility
+    path.write_text(content, encoding="utf-8")
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1078: in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1044: in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: [Errno 22] Invalid argument: 'C:\\Users\\Admin（无密码）\\AppData\\Local\\Temp\\pytest-of-Admin（无密码）\\pytest-24\\test_native_text_reader_compat3\\[literal]*.json'
+_ test_native_text_reader_compatibility[jsonl-{"key":"first"}\n{"key":"second","value":2}\n-expected4] _
+tests\backend\data_loader\test_probe.py:40: in test_native_text_reader_compatibility
+    path.write_text(content, encoding="utf-8")
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1078: in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\pathlib.py:1044: in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: [Errno 22] Invalid argument: 'C:\\Users\\Admin（无密码）\\AppData\\Local\\Temp\\pytest-of-Admin（无密码）\\pytest-24\\test_native_text_reader_compat4\\[literal]*.jsonl'
+_ test_helper_routes_use_small_model[code-expl-CodeExplanationAgent-payload2-result2] _
+tests\backend\routes\test_workspace_name_api.py:120: in test_helper_routes_use_small_model
+    assert response.status_code == 200
+E   assert 500 == 200
+E    +  where 500 = <WrapperTestResponse streamed [500 INTERNAL SERVER ERROR]>.status_code
+------------------------------ Captured log call ------------------------------
+ERROR    data_formulator.error_handler:error_handler.py:347 Unhandled exception request_id=3aadbdf7-759f-4bdf-999d-d72413da328d
+Traceback (most recent call last):
+  File "<INTEGRATION_WORKTREE>\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "<INTEGRATION_WORKTREE>\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<INTEGRATION_WORKTREE>\py-src\data_formulator\routes\agents.py", line 847, in request_code_expl
+    identity_id = get_identity_id()
+                  ^^^^^^^^^^^^^^^^^
+  File "<INTEGRATION_WORKTREE>\py-src\data_formulator\auth\identity.py", line 222, in get_identity_id
+    if ":" in client_identity:
+ValueError: X-Identity-Id header is required. Please refresh the page.
+__________ test_local_terminal_settings_without_administration[off] ___________
+tests\backend\security\test_configuration.py:812: in test_local_terminal_settings_without_administration
+    assert policy == {'mode': 'off', 'available': True, 'locked': False, 'revision': saved['revision']}
+E   AssertionError: assert {'available':...'revision': 1} == {'mode': 'off...'revision': 1}
+E
+E     Omitting 3 identical items, use -vv to show
+E     Differing items:
+E     {'available': False} != {'available': True}
+E     Use -v to get more diff
+------------------------------ Captured log call ------------------------------
+WARNING  data_formulator.error_handler:error_handler.py:297 AppError [ACCESS_DENIED] HTTP 403 request_id=7394d24f-0c28-4385-8370-542db4d042ac: Administration requires managed mode and installation administrator access.
+__________ test_local_terminal_settings_without_administration[ask] ___________
+tests\backend\security\test_configuration.py:812: in test_local_terminal_settings_without_administration
+    assert policy == {'mode': 'off', 'available': True, 'locked': False, 'revision': saved['revision']}
+E   AssertionError: assert {'available':...'revision': 1} == {'mode': 'off...'revision': 1}
+E
+E     Omitting 3 identical items, use -vv to show
+E     Differing items:
+E     {'available': False} != {'available': True}
+E     Use -v to get more diff
+------------------------------ Captured log call ------------------------------
+WARNING  data_formulator.error_handler:error_handler.py:297 AppError [ACCESS_DENIED] HTTP 403 request_id=28108dca-5fe1-4951-bf2f-e855f3f39094: Administration requires managed mode and installation administrator access.
+__________ test_local_terminal_settings_without_administration[auto] __________
+tests\backend\security\test_configuration.py:812: in test_local_terminal_settings_without_administration
+    assert policy == {'mode': 'off', 'available': True, 'locked': False, 'revision': saved['revision']}
+E   AssertionError: assert {'available':...'revision': 1} == {'mode': 'off...'revision': 1}
+E
+E     Omitting 3 identical items, use -vv to show
+E     Differing items:
+E     {'available': False} != {'available': True}
+E     Use -v to get more diff
+------------------------------ Captured log call ------------------------------
+WARNING  data_formulator.error_handler:error_handler.py:297 AppError [ACCESS_DENIED] HTTP 403 request_id=d6077856-01e1-41b0-9a48-4bd0f9eb15ee: Administration requires managed mode and installation administrator access.
+___________ test_local_terminal_settings_save_and_reset_write_paths ___________
+tests\backend\security\test_configuration.py:861: in test_local_terminal_settings_save_and_reset_write_paths
+    response = config_client.put('/api/configurations/terminal', json=body, headers=headers).get_json()['data']
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'data'
+------------------------------ Captured log call ------------------------------
+WARNING  data_formulator.error_handler:error_handler.py:297 AppError [INVALID_REQUEST] HTTP 200 request_id=94a02dd7-52b9-49c2-a843-26f52c5f9d99: Terminal is available only in single-user local mode on macOS or Linux.
+_________ test_terminal_configuration_api_policy_and_environment_lock _________
+tests\backend\security\test_configuration.py:897: in test_terminal_configuration_api_policy_and_environment_lock
+    assert initial['terminal'] == {'available': True, 'mode': 'ask', 'locked': False}
+E   AssertionError: assert {'available':...'mode': 'off'} == {'available':...ocked': False}
+E
+E     Omitting 1 identical items, use -vv to show
+E     Differing items:
+E     {'available': False} != {'available': True}
+E     {'mode': 'off'} != {'mode': 'ask'}
+E     Use -v to get more diff
+__________________ test_spinner_output_is_cp1252_safe[False] __________________
+tests\backend\test_startup_spinner.py:34: in test_spinner_output_is_cp1252_safe
+    assert "OK" in stream.getvalue()
+E   AssertionError: assert 'OK' in '  Loading test...\n'
+E    +  where '  Loading test...\n' = <built-in method getvalue of CP1252TTY object at 0x00000210FC457400>()
+E    +    where <built-in method getvalue of CP1252TTY object at 0x00000210FC457400> = <test_startup_spinner.CP1252TTY object at 0x00000210FC457400>.getvalue
+__________________ test_spinner_output_is_cp1252_safe[True] ___________________
+tests\backend\test_startup_spinner.py:30: in test_spinner_output_is_cp1252_safe
+    assert "ERROR" in stream.getvalue()
+E   AssertionError: assert 'ERROR' in '  Loading test...\n'
+E    +  where '  Loading test...\n' = <built-in method getvalue of CP1252TTY object at 0x00000210FC457250>()
+E    +    where <built-in method getvalue of CP1252TTY object at 0x00000210FC457250> = <test_startup_spinner.CP1252TTY object at 0x00000210FC457250>.getvalue
+=========================== short test summary info ===========================
+FAILED tests/backend/data_loader/test_probe.py::test_native_text_reader_compatibility[csv-\ufeffcode,text,score\r\n001,"line one\nline two, ""quoted""",2\r\n002,,\r\n-expected0]
+FAILED tests/backend/data_loader/test_probe.py::test_native_text_reader_compatibility[tsv-code\tvalue\n001\tfirst\n002\tsecond\n-expected1]
+FAILED tests/backend/data_loader/test_probe.py::test_native_text_reader_compatibility[json-[{"key":"first"},{"key":"second","nested":{"value":2}}]-expected2]
+FAILED tests/backend/data_loader/test_probe.py::test_native_text_reader_compatibility[json-\ufeff {\n "key": "single",\n "value": null\n}-expected3]
+FAILED tests/backend/data_loader/test_probe.py::test_native_text_reader_compatibility[jsonl-{"key":"first"}\n{"key":"second","value":2}\n-expected4]
+FAILED tests/backend/routes/test_workspace_name_api.py::test_helper_routes_use_small_model[code-expl-CodeExplanationAgent-payload2-result2]
+FAILED tests/backend/security/test_configuration.py::test_local_terminal_settings_without_administration[off]
+FAILED tests/backend/security/test_configuration.py::test_local_terminal_settings_without_administration[ask]
+FAILED tests/backend/security/test_configuration.py::test_local_terminal_settings_without_administration[auto]
+FAILED tests/backend/security/test_configuration.py::test_local_terminal_settings_save_and_reset_write_paths
+FAILED tests/backend/security/test_configuration.py::test_terminal_configuration_api_policy_and_environment_lock
+FAILED tests/backend/test_startup_spinner.py::test_spinner_output_is_cp1252_safe[False]
+FAILED tests/backend/test_startup_spinner.py::test_spinner_output_is_cp1252_safe[True]
+13 failed, 2743 passed, 164 skipped, 1 xpassed in 289.08s (0:04:49)

@@ -1,0 +1,559 @@
+
+> data-formulator@0.1.0 test
+> vitest run --silent --reporter=dot
+
+
+ RUN  v4.1.12 D:/data-agent-framework-integration
+
+Error: bad render
+    at module.exports.default (D:/data-agent-framework-integration/tests/frontend/unit/app/reactApp/runtime.test.tsx:188:82)
+    at renderWithHooks (<INTEGRATION_WORKTREE>\node_modules\react-dom\cjs\react-dom.development.js:15486:18)
+    at mountIndeterminateComponent (<INTEGRATION_WORKTREE>\node_modules\react-dom\cjs\react-dom.development.js:20103:13)
+    at beginWork (<INTEGRATION_WORKTREE>\node_modules\react-dom\cjs\react-dom.development.js:21626:16)
+    at HTMLUnknownElement.callCallback (<INTEGRATION_WORKTREE>\node_modules\react-dom\cjs\react-dom.development.js:4164:14)
+    at HTMLUnknownElement.callTheUserObjectsOperation (<INTEGRATION_WORKTREE>\node_modules\jsdom\lib\generated\idl\EventListener.js:26:30)
+    at innerInvokeEventListeners (<INTEGRATION_WORKTREE>\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:360:16)
+    at invokeEventListeners (<INTEGRATION_WORKTREE>\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:296:3)
+    at HTMLUnknownElementImpl._dispatch (<INTEGRATION_WORKTREE>\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:243:9)
+    at HTMLUnknownElementImpl.dispatchEvent (<INTEGRATION_WORKTREE>\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:114:17)
+Error: bad render
+    at module.exports.default (D:/data-agent-framework-integration/tests/frontend/unit/app/reactApp/runtime.test.tsx:188:82)
+    at renderWithHooks (<INTEGRATION_WORKTREE>\node_modules\react-dom\cjs\react-dom.development.js:15486:18)
+    at mountIndeterminateComponent (<INTEGRATION_WORKTREE>\node_modules\react-dom\cjs\react-dom.development.js:20103:13)
+    at beginWork (<INTEGRATION_WORKTREE>\node_modules\react-dom\cjs\react-dom.development.js:21626:16)
+    at HTMLUnknownElement.callCallback (<INTEGRATION_WORKTREE>\node_modules\react-dom\cjs\react-dom.development.js:4164:14)
+    at HTMLUnknownElement.callTheUserObjectsOperation (<INTEGRATION_WORKTREE>\node_modules\jsdom\lib\generated\idl\EventListener.js:26:30)
+    at innerInvokeEventListeners (<INTEGRATION_WORKTREE>\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:360:16)
+    at invokeEventListeners (<INTEGRATION_WORKTREE>\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:296:3)
+    at HTMLUnknownElementImpl._dispatch (<INTEGRATION_WORKTREE>\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:243:9)
+    at HTMLUnknownElementImpl.dispatchEvent (<INTEGRATION_WORKTREE>\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:114:17)
+x·······················x····xxxxxx·x·····································································································································xxx·x·················································································x··········································x·x·x························x·························x························································x·····················································································x·········································x····························································································x·······································································································x·························x··················································································································································································································-····························································································································································
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 25 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/frontend/unit/app/chartCatalog.test.ts > chart catalog > matches the installed Flint (regenerate with scripts/generate-chart-catalog.mjs)
+AssertionError: expected { chart_types: { …(35) }, …(1) } to deeply equal { chart_types: { …(36) }, …(1) }
+
+- Expected
++ Received
+
+@@ -218,23 +218,10 @@
+          "logScale_y": {
+            "type": "binary",
+          },
+        },
+      },
+-     "Calendar Heatmap": {
+-       "channels": [
+-         "x",
+-         "color",
+-       ],
+-       "options": {
+-         "cornerRadius": {
+-           "max": 8,
+-           "min": 0,
+-           "type": "continuous",
+-         },
+-       },
+-     },
+      "Candlestick Chart": {
+        "channels": [
+          "x",
+          "open",
+          "high",
+
+ ❯ tests/frontend/unit/app/chartCatalog.test.ts:8:27
+      6|     it('matches the installed Flint (regenerate with scripts/generate-…
+      7|         const committed = JSON.parse(readFileSync('py-src/data_formula…
+      8|         expect(committed).toEqual(buildChartCatalog());
+       |                           ^
+      9|         expect(committed.chart_types['Bar Chart'].channels).toContain(…
+     10|         expect(committed.themes.length).toBeGreaterThan(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/25]⎯
+
+ FAIL  tests/frontend/unit/app/i18nLocales.test.ts > i18n locale bundles > keeps Hindi translation keys aligned with English
+AssertionError: expected Set{ 'app.name', …(2254) } to deeply equal Set{ 'app.name', …(2258) }
+
+- Expected
++ Received
+
+@@ -566,13 +566,10 @@
+    "connectorPreview.refreshPreview",
+    "connectorPreview.rowCount",
+    "connectorPreview.showingPreview",
+    "connectorPreview.sourceMetadata",
+    "connectorPreview.unload",
+-   "dashboard.back",
+-   "dashboard.open",
+-   "dashboard.title",
+    "dataGrid.columnCount_one",
+    "dataGrid.columnCount_other",
+    "dataGrid.columnMenu.clearFilter",
+    "dataGrid.columnMenu.clearSort",
+    "dataGrid.columnMenu.filter",
+@@ -2240,11 +2237,10 @@
+    "workspace.recoveredSession",
+    "workspace.refreshList",
+    "workspace.refreshSession",
+    "workspace.rename",
+    "workspace.renameFailed",
+-   "workspace.returnHome",
+    "workspace.sessionTooltip",
+    "workspace.sessions",
+    "workspace.showAllSessions",
+    "workspace.sortName",
+    "workspace.sortNameAsc",
+
+ ❯ tests/frontend/unit/app/i18nLocales.test.ts:38:29
+     36|
+     37|   it("keeps Hindi translation keys aligned with English", () => {
+     38|     expect(collectKeys(hi)).toEqual(collectKeys(en));
+       |                             ^
+     39|   });
+     40|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/25]⎯
+
+ FAIL  tests/frontend/unit/app/i18nLocales.test.ts > i18n locale bundles > keeps Indonesian translation keys aligned with English
+AssertionError: expected Set{ 'app.name', …(2254) } to deeply equal Set{ 'app.name', …(2258) }
+
+- Expected
++ Received
+
+@@ -566,13 +566,10 @@
+    "connectorPreview.refreshPreview",
+    "connectorPreview.rowCount",
+    "connectorPreview.showingPreview",
+    "connectorPreview.sourceMetadata",
+    "connectorPreview.unload",
+-   "dashboard.back",
+-   "dashboard.open",
+-   "dashboard.title",
+    "dataGrid.columnCount_one",
+    "dataGrid.columnCount_other",
+    "dataGrid.columnMenu.clearFilter",
+    "dataGrid.columnMenu.clearSort",
+    "dataGrid.columnMenu.filter",
+@@ -2240,11 +2237,10 @@
+    "workspace.recoveredSession",
+    "workspace.refreshList",
+    "workspace.refreshSession",
+    "workspace.rename",
+    "workspace.renameFailed",
+-   "workspace.returnHome",
+    "workspace.sessionTooltip",
+    "workspace.sessions",
+    "workspace.showAllSessions",
+    "workspace.sortName",
+    "workspace.sortNameAsc",
+
+ ❯ tests/frontend/unit/app/i18nLocales.test.ts:42:29
+     40|
+     41|   it("keeps Indonesian translation keys aligned with English", () => {
+     42|     expect(collectKeys(id)).toEqual(collectKeys(en));
+       |                             ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/25]⎯
+
+ FAIL  tests/frontend/unit/app/i18nLocales.test.ts > i18n locale bundles > keeps Japanese translation keys aligned with English
+AssertionError: expected Set{ 'app.name', …(2254) } to deeply equal Set{ 'app.name', …(2258) }
+
+- Expected
++ Received
+
+@@ -566,13 +566,10 @@
+    "connectorPreview.refreshPreview",
+    "connectorPreview.rowCount",
+    "connectorPreview.showingPreview",
+    "connectorPreview.sourceMetadata",
+    "connectorPreview.unload",
+-   "dashboard.back",
+-   "dashboard.open",
+-   "dashboard.title",
+    "dataGrid.columnCount_one",
+    "dataGrid.columnCount_other",
+    "dataGrid.columnMenu.clearFilter",
+    "dataGrid.columnMenu.clearSort",
+    "dataGrid.columnMenu.filter",
+@@ -2240,11 +2237,10 @@
+    "workspace.recoveredSession",
+    "workspace.refreshList",
+    "workspace.refreshSession",
+    "workspace.rename",
+    "workspace.renameFailed",
+-   "workspace.returnHome",
+    "workspace.sessionTooltip",
+    "workspace.sessions",
+    "workspace.showAllSessions",
+    "workspace.sortName",
+    "workspace.sortNameAsc",
+
+ ❯ tests/frontend/unit/app/i18nLocales.test.ts:46:29
+     44|
+     45|   it("keeps Japanese translation keys aligned with English", () => {
+     46|     expect(collectKeys(ja)).toEqual(collectKeys(en));
+       |                             ^
+     47|   });
+     48|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/25]⎯
+
+ FAIL  tests/frontend/unit/app/i18nLocales.test.ts > i18n locale bundles > keeps German translation keys aligned with English
+AssertionError: expected Set{ 'app.name', …(2254) } to deeply equal Set{ 'app.name', …(2258) }
+
+- Expected
++ Received
+
+@@ -566,13 +566,10 @@
+    "connectorPreview.refreshPreview",
+    "connectorPreview.rowCount",
+    "connectorPreview.showingPreview",
+    "connectorPreview.sourceMetadata",
+    "connectorPreview.unload",
+-   "dashboard.back",
+-   "dashboard.open",
+-   "dashboard.title",
+    "dataGrid.columnCount_one",
+    "dataGrid.columnCount_other",
+    "dataGrid.columnMenu.clearFilter",
+    "dataGrid.columnMenu.clearSort",
+    "dataGrid.columnMenu.filter",
+@@ -2240,11 +2237,10 @@
+    "workspace.recoveredSession",
+    "workspace.refreshList",
+    "workspace.refreshSession",
+    "workspace.rename",
+    "workspace.renameFailed",
+-   "workspace.returnHome",
+    "workspace.sessionTooltip",
+    "workspace.sessions",
+    "workspace.showAllSessions",
+    "workspace.sortName",
+    "workspace.sortNameAsc",
+
+ ❯ tests/frontend/unit/app/i18nLocales.test.ts:50:29
+     48|
+     49|   it("keeps German translation keys aligned with English", () => {
+     50|     expect(collectKeys(de)).toEqual(collectKeys(en));
+       |                             ^
+     51|   });
+     52|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/25]⎯
+
+ FAIL  tests/frontend/unit/app/i18nLocales.test.ts > i18n locale bundles > keeps French translation keys aligned with English
+AssertionError: expected Set{ 'app.name', …(2254) } to deeply equal Set{ 'app.name', …(2258) }
+
+- Expected
++ Received
+
+@@ -566,13 +566,10 @@
+    "connectorPreview.refreshPreview",
+    "connectorPreview.rowCount",
+    "connectorPreview.showingPreview",
+    "connectorPreview.sourceMetadata",
+    "connectorPreview.unload",
+-   "dashboard.back",
+-   "dashboard.open",
+-   "dashboard.title",
+    "dataGrid.columnCount_one",
+    "dataGrid.columnCount_other",
+    "dataGrid.columnMenu.clearFilter",
+    "dataGrid.columnMenu.clearSort",
+    "dataGrid.columnMenu.filter",
+@@ -2240,11 +2237,10 @@
+    "workspace.recoveredSession",
+    "workspace.refreshList",
+    "workspace.refreshSession",
+    "workspace.rename",
+    "workspace.renameFailed",
+-   "workspace.returnHome",
+    "workspace.sessionTooltip",
+    "workspace.sessions",
+    "workspace.showAllSessions",
+    "workspace.sortName",
+    "workspace.sortNameAsc",
+
+ ❯ tests/frontend/unit/app/i18nLocales.test.ts:54:29
+     52|
+     53|   it("keeps French translation keys aligned with English", () => {
+     54|     expect(collectKeys(fr)).toEqual(collectKeys(en));
+       |                             ^
+     55|   });
+     56|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/25]⎯
+
+ FAIL  tests/frontend/unit/app/i18nLocales.test.ts > i18n locale bundles > keeps Korean translation keys aligned with English
+AssertionError: expected Set{ 'app.name', …(2254) } to deeply equal Set{ 'app.name', …(2258) }
+
+- Expected
++ Received
+
+@@ -566,13 +566,10 @@
+    "connectorPreview.refreshPreview",
+    "connectorPreview.rowCount",
+    "connectorPreview.showingPreview",
+    "connectorPreview.sourceMetadata",
+    "connectorPreview.unload",
+-   "dashboard.back",
+-   "dashboard.open",
+-   "dashboard.title",
+    "dataGrid.columnCount_one",
+    "dataGrid.columnCount_other",
+    "dataGrid.columnMenu.clearFilter",
+    "dataGrid.columnMenu.clearSort",
+    "dataGrid.columnMenu.filter",
+@@ -2240,11 +2237,10 @@
+    "workspace.recoveredSession",
+    "workspace.refreshList",
+    "workspace.refreshSession",
+    "workspace.rename",
+    "workspace.renameFailed",
+-   "workspace.returnHome",
+    "workspace.sessionTooltip",
+    "workspace.sessions",
+    "workspace.showAllSessions",
+    "workspace.sortName",
+    "workspace.sortNameAsc",
+
+ ❯ tests/frontend/unit/app/i18nLocales.test.ts:58:29
+     56|
+     57|   it("keeps Korean translation keys aligned with English", () => {
+     58|     expect(collectKeys(ko)).toEqual(collectKeys(en));
+       |                             ^
+     59|   });
+     60| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/25]⎯
+
+ FAIL  tests/frontend/unit/app/IdentityMigrationDialog.test.tsx > Anonymous user logs in and sees migration dialog > shows the dialog when anonymous workspaces exist
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/frontend/unit/app/IdentityMigrationDialog.test.tsx:91:5
+     89| describe("Anonymous user logs in and sees migration dialog", () => {
+     90|
+     91|     it("shows the dialog when anonymous workspaces exist", async () =>…
+       |     ^
+     92|         setupAnonymousWorkspaces(3);
+     93|         const onDone = vi.fn();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/25]⎯
+
+ FAIL  tests/frontend/unit/app/IdentityMigrationDialog.test.tsx > User clicks 'Import Data' > calls migrate endpoint and shows importing state
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/frontend/unit/app/IdentityMigrationDialog.test.tsx:178:5
+    176| describe("User clicks 'Import Data'", () => {
+    177|
+    178|     it("calls migrate endpoint and shows importing state", async () =>…
+       |     ^
+    179|         setupAnonymousWorkspaces(2);
+    180|         let resolveMigrate!: (v: Response) => void;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/25]⎯
+
+ FAIL  tests/frontend/unit/app/workspaceService.test.ts > scheduled run sessions > restores the workflow turn and returns the checkpoint so its outputs publish from the workspace
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/frontend/unit/app/workspaceService.test.ts:57:5
+     55|     });
+     56|
+     57|     it('restores the workflow turn and returns the checkpoint so its o…
+       |     ^
+     58|         mockState.serverConfig.WORKSPACE_BACKEND = 'local';
+     59|         vi.spyOn(await import('../../../../src/app/apiClient'), 'apiRe…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/25]⎯
+
+ FAIL  tests/frontend/unit/views/ConfigurationView.test.tsx > creates an editable workflow draft and only persists it on Save
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/frontend/unit/views/ConfigurationView.test.tsx:281:1
+    279| });
+    280|
+    281| it('creates an editable workflow draft and only persists it on Save', …
+       | ^
+    282|     render(<ConfigurationView />);
+    283|     await screen.findByRole('button', { name: 'Edit Warehouse' });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/25]⎯
+
+ FAIL  tests/frontend/unit/views/ConfigurationView.test.tsx > edits file-backed workflows from resolved content while JSON keeps only references
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/frontend/unit/views/ConfigurationView.test.tsx:307:1
+    305| });
+    306|
+    307| it('edits file-backed workflows from resolved content while JSON keeps…
+       | ^
+    308|     const content = 'version: 1\nname: Team review\n';
+    309|     const options = { enabled: false, file: 'workflows/team.yaml' };
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/25]⎯
+
+ FAIL  tests/frontend/unit/views/KustoClusterDiscovery.test.tsx > only discovers the selected subscription and ignores stale results when switching
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/frontend/unit/views/KustoClusterDiscovery.test.tsx:12:1
+     10| vi.mock('../../../../src/app/apiClient', () => ({ apiRequest: vi.fn() …
+     11|
+     12| it('only discovers the selected subscription and ignores stale results…
+       | ^
+     13|     const pending = new Map<string, (result: any) => void>();
+     14|     vi.mocked(apiRequest).mockReset();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/25]⎯
+
+ FAIL  tests/frontend/unit/views/ModelSelectionDialog.test.tsx > Model connection form > limits managed deployments to server models without custom-model actions
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/frontend/unit/views/ModelSelectionDialog.test.tsx:60:5
+     58|     };
+     59|
+     60|     it('limits managed deployments to server models without custom-mod…
+       |     ^
+     61|         const store = openForm({ id: 'global-openai-managed', endpoint…
+     62|         expect(screen.getByRole('heading', { name: 'managed-model' }))…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/25]⎯
+
+ FAIL  tests/frontend/unit/views/ModelSelectionDialog.test.tsx > Model connection form > stages installation models without saving personal state or using account login
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/frontend/unit/views/ModelSelectionDialog.test.tsx:89:5
+     87|     };
+     88|
+     89|     it('stages installation models without saving personal state or us…
+       |     ^
+     90|         const initial = dataFormulatorReducer(undefined, { type: 'test…
+     91|         const store = configureStore({ reducer: dataFormulatorReducer,…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/25]⎯
+
+ FAIL  tests/frontend/unit/views/ModelSelectionDialog.test.tsx > Model connection form > connects github_copilot and saves a secret-free account reference for the agent harness
+ FAIL  tests/frontend/unit/views/ModelSelectionDialog.test.tsx > Model connection form > connects chatgpt and saves a secret-free account reference for the agent harness
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/frontend/unit/views/ModelSelectionDialog.test.tsx:216:42
+    214|     };
+    215|
+    216|     it.each(['github_copilot', 'chatgpt'])('connects %s and saves a se…
+       |                                          ^
+    217|         const isChatGPT = provider === 'chatgpt';
+    218|         const base = mockCopilot(false, true, provider);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/25]⎯
+
+ FAIL  tests/frontend/unit/views/SetupFormArtifacts.test.tsx > renames, opens in a new tab, and deletes each session directly
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/frontend/unit/views/SetupFormArtifacts.test.tsx:44:1
+     42| });
+     43|
+     44| it('renames, opens in a new tab, and deletes each session directly', a…
+       | ^
+     45|     const open = vi.spyOn(window, 'open').mockImplementation(() => nul…
+     46|     const store = makeStore({ kind: 'sessions', title: 'Empty sessions…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/25]⎯
+
+ FAIL  tests/frontend/unit/views/SimpleChartRecBox.test.tsx > Analyst landing attachment handoff > replacing an artifact the user wants fixed > applies a chart the agent edited as a file and a file it moved
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/frontend/unit/views/SimpleChartRecBox.test.tsx:957:9
+    955|         });
+    956|
+    957|         it('applies a chart the agent edited as a file and a file it m…
+       |         ^
+    958|             vi.mocked(streamRequest).mockImplementationOnce(async func…
+    959|                 yield { type: 'tool_result', tool: 'edit_file', status…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/25]⎯
+
+ FAIL  tests/frontend/unit/views/TerminalApprovalDialog.test.tsx > saves terminal mode off in place without Administration access
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/frontend/unit/views/TerminalApprovalDialog.test.tsx:15:31
+     13| beforeEach(() => vi.mocked(apiRequest).mockReset());
+     14|
+     15| it.each(['off', 'ask', 'auto'] as const)('saves terminal mode %s in pl…
+       |                               ^
+     16|     store.dispatch(dfActions.resetState());
+     17|     const initial = mode === 'off' ? 'ask' : 'off';
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/25]⎯
+
+ FAIL  tests/frontend/unit/views/threadPlacement.test.ts > Thread artifact placement > renders every artifact exactly once, whatever node it follows
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/frontend/unit/views/threadPlacement.test.ts:58:5
+     56|     };
+     57|
+     58|     it('renders every artifact exactly once, whatever node it follows'…
+       |     ^
+     59|         const store = buildThread();
+     60|         expect(danglingParents(store.getState())).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/25]⎯
+
+ FAIL  tests/frontend/unit/views/threadProvenance.test.ts > keeps a shown thread open when a new thread appears and only collapses on request
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/frontend/unit/views/threadProvenance.test.ts:93:1
+     91| });
+     92|
+     93| it('keeps a shown thread open when a new thread appears and only colla…
+       | ^
+     94|   const store = configureStore({ reducer: dataFormulatorReducer });
+     95|   const addTurn = (id: string, parentNodeId: string, createdAt: number…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/25]⎯
+
+ FAIL  tests/frontend/unit/views/threadProvenance.test.ts > opens the full thread only from its icon or collapsed shortcut (table: false, report: false)
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/frontend/unit/views/threadProvenance.test.ts:195:2
+    193|   { producesTable: true, hasReport: false },
+    194|   { producesTable: false, hasReport: true },
+    195| ])('opens the full thread only from its icon or collapsed shortcut (ta…
+       |  ^
+    196|   const store = configureStore({ reducer: dataFormulatorReducer });
+    197|   // Six rounds, each a user message followed by the agent's reply.
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/25]⎯
+
+ FAIL  tests/frontend/unit/views/VisualizationView.test.ts > shows table-owned transformation details for python tables without a chart
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/frontend/unit/views/VisualizationView.test.ts:154:36
+    152| });
+    153|
+    154| it.each(['source', 'python', 'sql'])('shows table-owned transformation…
+       |                                    ^
+    155|     vi.stubGlobal('ResizeObserver', class {
+    156|         observe() {}
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/25]⎯
+
+ FAIL  tests/frontend/unit/views/WorkflowPanel.test.tsx > Workflow session publication > simplifies schedule defaults and reveals missing required inputs
+Error: Test timed out in 15000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/frontend/unit/views/WorkflowPanel.test.tsx:100:5
+     98|
+     99|     // A full panel walkthrough: about 3s alone, longer under the para…
+    100|     it('simplifies schedule defaults and reveals missing required inpu…
+       |     ^
+    101|         const previous = store.getState();
+    102|         let rendered: ReturnType<typeof render> | undefined;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/25]⎯
+
+
+ Test Files  14 failed | 67 passed (81)
+      Tests  25 failed | 1104 passed | 1 todo (1130)
+   Start at  20:32:49
+   Duration  158.54s (transform 302.93s, setup 18.52s, import 1510.94s, tests 471.51s, environment 173.67s)

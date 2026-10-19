@@ -1,0 +1,12 @@
+
+> data-formulator@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 D:/data-agent-framework
+
+
+ Test Files  46 passed (46)
+      Tests  396 passed (396)
+   Start at  08:55:01
+   Duration  25.04s (transform 32.91s, setup 8.70s, import 262.77s, tests 15.33s, environment 69.02s)

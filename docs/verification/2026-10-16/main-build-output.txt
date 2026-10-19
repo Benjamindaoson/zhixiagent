@@ -1,0 +1,147 @@
+
+> data-formulator@0.1.0 build
+> cross-env NODE_OPTIONS=--max-old-space-size=8192 ROLLUP_NATIVE=0 vite build
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 2735 modules transformed.
+node_modules/vm-browserify/index.js (110:11): Use of eval in "node_modules/vm-browserify/index.js" is strongly discouraged as it poses security risks and may cause issues with minification.
+rendering chunks...
+[plugin vite:reporter]
+(!) D:/data-agent-framework/src/app/store.ts is dynamically imported by D:/data-agent-framework/src/app/utils.tsx, D:/data-agent-framework/src/app/utils.tsx, D:/data-agent-framework/src/app/workspaceService.ts, D:/data-agent-framework/src/app/workspaceService.ts but also statically imported by D:/data-agent-framework/src/app/App.tsx, D:/data-agent-framework/src/app/AuthButton.tsx, D:/data-agent-framework/src/app/IdentityMigrationDialog.tsx, D:/data-agent-framework/src/app/errorHandler.ts, D:/data-agent-framework/src/index.tsx, D:/data-agent-framework/src/views/DataFormulator.tsx, D:/data-agent-framework/src/views/SessionDistill.tsx, dynamic import will not move module into another chunk.
+
+computing gzip size...
+py-src/data_formulator/dist/assets/zhixi-mark-pWyJoeUu.svg                                 0.63 kB │ gzip:     0.37 kB
+py-src/data_formulator/dist/index.html                                                     2.52 kB │ gzip:     1.02 kB
+py-src/data_formulator/dist/assets/KaTeX_Size3-Regular-CTq5MqoE.woff                       4.42 kB
+py-src/data_formulator/dist/assets/chart-icon-world-map-min-JGUoZPzz.png                   4.62 kB
+py-src/data_formulator/dist/assets/roboto-mono-vietnamese-400-normal-yYTFiTTs.woff2        4.64 kB
+py-src/data_formulator/dist/assets/roboto-mono-vietnamese-500-normal-Cq-quQMu.woff2        4.71 kB
+py-src/data_formulator/dist/assets/KaTeX_Size4-Regular-Dl5lxZxV.woff2                      4.93 kB
+py-src/data_formulator/dist/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2                      5.21 kB
+py-src/data_formulator/dist/assets/KaTeX_Size1-Regular-mCD8mA8B.woff2                      5.47 kB
+py-src/data_formulator/dist/assets/roboto-vietnamese-300-normal-CnPrVvBs.woff2             5.47 kB
+py-src/data_formulator/dist/assets/roboto-vietnamese-700-normal-SekShQfT.woff2             5.55 kB
+py-src/data_formulator/dist/assets/roboto-vietnamese-400-normal-kCRe3VZk.woff2             5.56 kB
+py-src/data_formulator/dist/assets/roboto-vietnamese-500-normal-CcijQRVW.woff2             5.60 kB
+py-src/data_formulator/dist/assets/roboto-mono-vietnamese-400-normal-CzWHQABp.woff         5.80 kB
+py-src/data_formulator/dist/assets/chart-icon-us-map-min-CBKwYuWG.png                      5.84 kB
+py-src/data_formulator/dist/assets/roboto-mono-vietnamese-500-normal-IxzxMIj7.woff         5.92 kB
+py-src/data_formulator/dist/assets/roboto-mono-greek-400-normal-CH_u3Aru.woff2             5.94 kB
+py-src/data_formulator/dist/assets/KaTeX_Size4-Regular-BF-4gkZK.woff                       5.98 kB
+py-src/data_formulator/dist/assets/roboto-mono-greek-500-normal-DpRFkptA.woff2             5.98 kB
+py-src/data_formulator/dist/assets/KaTeX_Size2-Regular-oD1tc_U0.woff                       6.19 kB
+py-src/data_formulator/dist/assets/KaTeX_Size1-Regular-C195tn64.woff                       6.50 kB
+py-src/data_formulator/dist/assets/KaTeX_Caligraphic-Regular-Di6jR-x-.woff2                6.91 kB
+py-src/data_formulator/dist/assets/KaTeX_Caligraphic-Bold-Dq_IR9rO.woff2                   6.91 kB
+py-src/data_formulator/dist/assets/roboto-greek-700-normal-Cc2Tq8FV.woff2                  6.94 kB
+py-src/data_formulator/dist/assets/roboto-greek-500-normal-CpESfwfG.woff2                  7.02 kB
+py-src/data_formulator/dist/assets/roboto-greek-400-normal-BRWHCUYo.woff2                  7.11 kB
+py-src/data_formulator/dist/assets/roboto-greek-300-normal-ndiuWqED.woff2                  7.12 kB
+py-src/data_formulator/dist/assets/roboto-mono-greek-400-normal-P8xe1gs1.woff              7.18 kB
+py-src/data_formulator/dist/assets/roboto-mono-greek-500-normal-C2M8jX6G.woff              7.19 kB
+py-src/data_formulator/dist/assets/roboto-mono-cyrillic-400-normal-C-_K-ZCn.woff2          7.46 kB
+py-src/data_formulator/dist/assets/roboto-mono-cyrillic-500-normal-DGZ7-lUP.woff2          7.51 kB
+py-src/data_formulator/dist/assets/KaTeX_Size3-Regular-DgpXs0kz.ttf                        7.59 kB
+py-src/data_formulator/dist/assets/KaTeX_Caligraphic-Regular-CTRA-rTL.woff                 7.66 kB
+py-src/data_formulator/dist/assets/KaTeX_Caligraphic-Bold-BEiXGLvX.woff                    7.72 kB
+py-src/data_formulator/dist/assets/roboto-mono-cyrillic-400-normal-B3hIXASd.woff           9.10 kB
+py-src/data_formulator/dist/assets/roboto-mono-cyrillic-500-normal-NpUJFYX7.woff           9.21 kB
+py-src/data_formulator/dist/assets/roboto-cyrillic-300-normal-D6mjswgs.woff2               9.58 kB
+py-src/data_formulator/dist/assets/roboto-mono-latin-ext-400-normal-DLAV9S_w.woff2         9.59 kB
+py-src/data_formulator/dist/assets/roboto-cyrillic-400-normal-DVDTZtmW.woff2               9.63 kB
+py-src/data_formulator/dist/assets/KaTeX_Script-Regular-D3wIWfF6.woff2                     9.64 kB
+py-src/data_formulator/dist/assets/roboto-cyrillic-700-normal-B5ZBKWCH.woff2               9.64 kB
+py-src/data_formulator/dist/assets/roboto-mono-latin-ext-500-normal-Db3ge6Oe.woff2         9.81 kB
+py-src/data_formulator/dist/assets/roboto-cyrillic-500-normal-DAkZhMOh.woff2               9.84 kB
+py-src/data_formulator/dist/assets/KaTeX_SansSerif-Regular-DDBCnlJ7.woff2                 10.34 kB
+py-src/data_formulator/dist/assets/KaTeX_Size4-Regular-DWFBv043.ttf                       10.36 kB
+py-src/data_formulator/dist/assets/KaTeX_Script-Regular-D5yQViql.woff                     10.59 kB
+py-src/data_formulator/dist/assets/KaTeX_Fraktur-Regular-CTYiF6lA.woff2                   11.32 kB
+py-src/data_formulator/dist/assets/KaTeX_Fraktur-Bold-CL6g_b3V.woff2                      11.35 kB
+py-src/data_formulator/dist/assets/KaTeX_Size2-Regular-B7gKUWhC.ttf                       11.51 kB
+py-src/data_formulator/dist/assets/roboto-latin-ext-300-normal-DEsNdRC-.woff2             11.80 kB
+py-src/data_formulator/dist/assets/roboto-latin-ext-500-normal-BWKy6SgX.woff2             11.80 kB
+py-src/data_formulator/dist/assets/roboto-latin-ext-700-normal-BYGCo3Go.woff2             11.82 kB
+py-src/data_formulator/dist/assets/roboto-latin-ext-400-normal-4bLplyDh.woff2             11.87 kB
+py-src/data_formulator/dist/assets/KaTeX_SansSerif-Italic-C3H0VqGB.woff2                  12.03 kB
+py-src/data_formulator/dist/assets/roboto-mono-latin-ext-400-normal-BwLXVYNz.woff         12.16 kB
+py-src/data_formulator/dist/assets/KaTeX_SansSerif-Bold-D1sUS0GD.woff2                    12.22 kB
+py-src/data_formulator/dist/assets/KaTeX_Size1-Regular-Dbsnue_I.ttf                       12.23 kB
+py-src/data_formulator/dist/assets/roboto-mono-latin-ext-500-normal-B1IjfbhL.woff         12.31 kB
+py-src/data_formulator/dist/assets/KaTeX_SansSerif-Regular-CS6fqUqJ.woff                  12.32 kB
+py-src/data_formulator/dist/assets/KaTeX_Caligraphic-Regular-wX97UBjC.ttf                 12.34 kB
+py-src/data_formulator/dist/assets/KaTeX_Caligraphic-Bold-ATXxdsX0.ttf                    12.37 kB
+py-src/data_formulator/dist/assets/roboto-mono-latin-400-normal-GekRknry.woff2            12.68 kB
+py-src/data_formulator/dist/assets/roboto-mono-latin-500-normal-pxIOXZmA.woff2            12.94 kB
+py-src/data_formulator/dist/assets/KaTeX_Fraktur-Regular-Dxdc4cR9.woff                    13.21 kB
+py-src/data_formulator/dist/assets/KaTeX_Fraktur-Bold-BsDP51OF.woff                       13.30 kB
+py-src/data_formulator/dist/assets/KaTeX_Typewriter-Regular-CO6r4hn1.woff2                13.57 kB
+py-src/data_formulator/dist/assets/roboto-mono-cyrillic-ext-400-normal-BHxv52bw.woff2     13.73 kB
+py-src/data_formulator/dist/assets/roboto-mono-cyrillic-ext-500-normal-DC57U9n8.woff2     14.06 kB
+py-src/data_formulator/dist/assets/KaTeX_SansSerif-Italic-DN2j7dab.woff                   14.11 kB
+py-src/data_formulator/dist/assets/KaTeX_SansSerif-Bold-DbIhKOiC.woff                     14.41 kB
+py-src/data_formulator/dist/assets/roboto-cyrillic-ext-700-normal-CsrCEJIc.woff2          14.68 kB
+py-src/data_formulator/dist/assets/roboto-cyrillic-ext-500-normal-G9W8hgzQ.woff2          14.97 kB
+py-src/data_formulator/dist/assets/roboto-cyrillic-ext-300-normal-TzZWIuiO.woff2          15.00 kB
+py-src/data_formulator/dist/assets/roboto-cyrillic-ext-400-normal-DORK9bGA.woff2          15.34 kB
+py-src/data_formulator/dist/assets/roboto-mono-latin-400-normal-DBZPkcnn.woff             15.72 kB
+py-src/data_formulator/dist/assets/roboto-latin-300-normal-ThHrQhYb.woff2                 15.74 kB
+py-src/data_formulator/dist/assets/roboto-latin-400-normal-mTIRXP6Y.woff2                 15.74 kB
+py-src/data_formulator/dist/assets/roboto-latin-700-normal-CeM5gOv8.woff2                 15.86 kB
+py-src/data_formulator/dist/assets/roboto-latin-500-normal-Dxdx3aXO.woff2                 15.92 kB
+py-src/data_formulator/dist/assets/roboto-mono-latin-500-normal-D6j6AMzd.woff             15.93 kB
+py-src/data_formulator/dist/assets/KaTeX_Typewriter-Regular-C0xS9mPB.woff                 16.03 kB
+py-src/data_formulator/dist/assets/KaTeX_Math-BoldItalic-CZnvNsCZ.woff2                   16.40 kB
+py-src/data_formulator/dist/assets/KaTeX_Math-Italic-t53AETM-.woff2                       16.44 kB
+py-src/data_formulator/dist/assets/KaTeX_Script-Regular-C5JkGWo-.ttf                      16.65 kB
+py-src/data_formulator/dist/assets/KaTeX_Main-BoldItalic-DxDJ3AOS.woff2                   16.78 kB
+py-src/data_formulator/dist/assets/KaTeX_Main-Italic-NWA7e6Wa.woff2                       16.99 kB
+py-src/data_formulator/dist/assets/roboto-mono-cyrillic-ext-400-normal-W26xs1TL.woff      17.11 kB
+py-src/data_formulator/dist/assets/roboto-mono-cyrillic-ext-500-normal-6xdwlG7p.woff      17.50 kB
+py-src/data_formulator/dist/assets/KaTeX_Math-BoldItalic-iY-2wyZ7.woff                    18.67 kB
+py-src/data_formulator/dist/assets/KaTeX_Math-Italic-DA0__PXp.woff                        18.75 kB
+py-src/data_formulator/dist/assets/KaTeX_Main-BoldItalic-SpSLRI95.woff                    19.41 kB
+py-src/data_formulator/dist/assets/KaTeX_SansSerif-Regular-BNo7hRIc.ttf                   19.44 kB
+py-src/data_formulator/dist/assets/KaTeX_Fraktur-Regular-CB_wures.ttf                     19.57 kB
+py-src/data_formulator/dist/assets/KaTeX_Fraktur-Bold-BdnERNNW.ttf                        19.58 kB
+py-src/data_formulator/dist/assets/KaTeX_Main-Italic-BMLOBm91.woff                        19.68 kB
+py-src/data_formulator/dist/assets/KaTeX_SansSerif-Italic-YYjJ1zSn.ttf                    22.36 kB
+py-src/data_formulator/dist/assets/KaTeX_SansSerif-Bold-CFMepnvq.ttf                      24.50 kB
+py-src/data_formulator/dist/assets/KaTeX_Main-Bold-Cx986IdX.woff2                         25.32 kB
+py-src/data_formulator/dist/assets/KaTeX_Main-Regular-B22Nviop.woff2                      26.27 kB
+py-src/data_formulator/dist/assets/KaTeX_Typewriter-Regular-D3Ib7_Hf.ttf                  27.56 kB
+py-src/data_formulator/dist/assets/KaTeX_AMS-Regular-BQhdFMY1.woff2                       28.08 kB
+py-src/data_formulator/dist/assets/KaTeX_Main-Bold-Jm3AIy58.woff                          29.91 kB
+py-src/data_formulator/dist/assets/KaTeX_Main-Regular-Dr94JaBh.woff                       30.77 kB
+py-src/data_formulator/dist/assets/KaTeX_Math-BoldItalic-B3XSjfu4.ttf                     31.20 kB
+py-src/data_formulator/dist/assets/KaTeX_Math-Italic-flOr_0UB.ttf                         31.31 kB
+py-src/data_formulator/dist/assets/example-image-table-Dt9uSzww.png                       31.69 kB
+py-src/data_formulator/dist/assets/KaTeX_Main-BoldItalic-DzxPMmG6.ttf                     32.97 kB
+py-src/data_formulator/dist/assets/KaTeX_AMS-Regular-DMm9YOAa.woff                        33.52 kB
+py-src/data_formulator/dist/assets/KaTeX_Main-Italic-3WenGoN9.ttf                         33.58 kB
+py-src/data_formulator/dist/assets/KaTeX_Main-Bold-waoOVXN0.ttf                           51.34 kB
+py-src/data_formulator/dist/assets/KaTeX_Main-Regular-ypZvNtVU.ttf                        53.58 kB
+py-src/data_formulator/dist/assets/KaTeX_AMS-Regular-DRggAlZN.ttf                         63.63 kB
+py-src/data_formulator/dist/assets/roboto-all-300-normal-lRRuIfal.woff                    65.16 kB
+py-src/data_formulator/dist/assets/roboto-all-400-normal-BZJ9QssU.woff                    65.46 kB
+py-src/data_formulator/dist/assets/roboto-all-700-normal-BfaNsj0k.woff                    65.56 kB
+py-src/data_formulator/dist/assets/roboto-all-500-normal-B0NPRryQ.woff                    65.76 kB
+py-src/data_formulator/dist/assets/df-logo-CmCd_NNm.png                                  177.44 kB
+py-src/data_formulator/dist/assets/index-Uh7p_MO3.css                                     67.95 kB │ gzip:    19.44 kB
+py-src/data_formulator/dist/assets/vendor-editor-U_gbx_cj.js                              19.04 kB │ gzip:     7.21 kB
+py-src/data_formulator/dist/assets/vendor-react-BoY_aezv.js                               32.71 kB │ gzip:    12.24 kB
+py-src/data_formulator/dist/assets/oidcConfig-_zvrgG80.js                                 71.50 kB │ gzip:    18.46 kB
+py-src/data_formulator/dist/assets/vendor-utils-D6XhYeA0.js                              102.21 kB │ gzip:    36.21 kB
+py-src/data_formulator/dist/assets/vendor-d3-5oYBAW1C.js                                 190.38 kB │ gzip:    64.25 kB
+py-src/data_formulator/dist/assets/vendor-markdown-B34AoXvR.js                           281.20 kB │ gzip:    85.35 kB
+py-src/data_formulator/dist/assets/vendor-mui-ZDxaw1sf.js                                583.25 kB │ gzip:   179.16 kB
+py-src/data_formulator/dist/assets/vendor-vega-Da0g3QHA.js                               695.92 kB │ gzip:   241.07 kB
+py-src/data_formulator/dist/assets/vendor-misc-CnuRwvAe.js                             1,283.90 kB │ gzip:   361.78 kB
+py-src/data_formulator/dist/DataFormulator.js                                          7,143.05 kB │ gzip: 2,102.89 kB
+
+(!) Some chunks are larger than 1000 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 1m 43s
