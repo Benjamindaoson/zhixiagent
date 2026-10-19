@@ -18,8 +18,8 @@
 4. 主目录保留与集成目录同内容的 `.env`，本地模型配置没有因删除临时目录丢失；
 5. 仅停止命令行明确指向临时集成目录的服务，不影响主目录的 `5567` 服务。
 
-删除对象仅为 `D:\data-agent-framework-integration`。主目录 `D:\data-agent-framework`、本地运行配置和 GitHub 仓库继续保留。
+删除对象仅为 `D:\data-agent-framework-integration`。当时保留的主目录 `D:\data-agent-framework` 随后按用户要求更名为 `D:\zhixiagent`；本地运行配置和 GitHub 仓库继续保留。
 
 ## 完成回执
 
-2026-10-19，合并提交 `165ef88c` 已推送并由 `git ls-remote` 确认存在于 GitHub `main`。随后通过 Git worktree 管理命令删除临时目录；删除后 `D:\data-agent-framework-integration` 已不存在，工作树清单只保留 `D:\data-agent-framework`，主目录与远端 `main` 一致。
+2026-10-19，合并提交 `165ef88c` 已推送并由 `git ls-remote` 确认存在于 GitHub `main`。随后通过 Git worktree 管理命令删除临时目录；删除后 `D:\data-agent-framework-integration` 已不存在，工作树清单只保留主目录，主目录与远端 `main` 一致。最终路径见[更新 06](2026-10-19-local-folder-rename.md)。
