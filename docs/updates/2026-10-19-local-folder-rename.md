@@ -11,3 +11,7 @@ GitHub 仓库名称已经是 `zhixiagent`，本地仍沿用上游开发阶段的
 5. 在新路径重新检查 Git 根目录、远端、提交、`.env` 和 CodeGraph 状态。
 
 最终保留的本地项目目录为 `D:\zhixiagent`，GitHub 仓库仍为 <https://github.com/Benjamindaoson/zhixiagent>。
+
+## 完成回执
+
+项目的 54 个顶层条目已全部移动到 `D:\zhixiagent`，无移动失败；新目录包含 114,098 个文件，`.env`、`.venv`、`node_modules` 和 Git 元数据均存在。新路径下工作树干净，`main`、`origin/main` 与 GitHub 远端均指向提交 `d657d257`。旧路径只剩零文件空目录；当前 Codex 进程把该路径作为会话工作目录，Windows 暂时拒绝删除根目录，因此已启动只针对这个空目录的后台清理器，在句柄释放后自动删除。`D:\data-agent-framework-integration` 和 `D:\data-agent-framework-integration-runtime` 已确认不存在。
